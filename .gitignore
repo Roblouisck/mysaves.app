@@ -25,3 +25,4 @@ yarn-error.log*
 
 # sensitive data
 /src/keys.js
+Notes.js
