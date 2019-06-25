@@ -1,27 +1,38 @@
 import axios from 'axios';
 import React from 'react';
+import { connect } from 'react-redux';
+import { storeUserHistory } from '../actions/index.js'
+import ListSaved from '../components/ListSaved'
 
 class RedditUserData extends React.Component {
-  state = {savedPosts: [] }
 
   // Retrieving our reddit api access token from the current url
   async componentDidMount (props) {
   const params = new URLSearchParams(this.props.location.hash);
   const token = params.get('#access_token')
 
-  const userIdentityData = await axios.get ('https://oauth.reddit.com/api/v1/me', {
+  // Axios requests to reddit API
+  const userIdentityObject = await axios.get ('https://oauth.reddit.com/api/v1/me', {
     headers: { 'Authorization': `bearer ${token}` }
   })
-    const userHistoryData = await axios.get (`https://oauth.reddit.com/user/${userIdentityData.data.name}/saved`, {
+  const userHistoryObject = await axios.get (`https://oauth.reddit.com/user/${userIdentityObject.data.name}/saved`, {
     headers: { 'Authorization': `bearer ${token}` }
   })
-  this.setState({savedPosts: userHistoryData.data.data.children})
-  console.log(this.state.savedPosts)
+
+  // store the user history in state
+  const RetrievedUserHistory = userHistoryObject.data.data.children
+  this.props.storeUserHistory(RetrievedUserHistory)
 }
 
   render() {
-    return <div>loading</div>
+    console.log(this.props.userHistory)
+    return <ListSaved />
   }
+
 }
 
-export default RedditUserData;
+const mapStateToProps = state => {
+  return { userHistory: state.userHistory }
+}
+
+export default connect(mapStateToProps, {storeUserHistory})(RedditUserData);
