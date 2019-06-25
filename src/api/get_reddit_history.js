@@ -15,7 +15,7 @@ class RedditUserData extends React.Component {
   const userIdentityObject = await axios.get ('https://oauth.reddit.com/api/v1/me', {
     headers: { 'Authorization': `bearer ${token}` }
   })
-  const userHistoryObject = await axios.get (`https://oauth.reddit.com/user/${userIdentityObject.data.name}/saved`, {
+  const userHistoryObject = await axios.get (`https://oauth.reddit.com/user/${userIdentityObject.data.name}/saved/.json?limit=100`, {
     headers: { 'Authorization': `bearer ${token}` }
   })
 
@@ -25,7 +25,6 @@ class RedditUserData extends React.Component {
 }
 
   render() {
-    console.log(this.props.userHistory)
     return <ListSaved />
   }
 
