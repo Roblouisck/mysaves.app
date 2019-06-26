@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 class ListSaved extends React.Component {
 
   renderPostTitles() {
-    return this.props.userSaves.map((saved) => {
+    return this.props.totalSaves.map((saved) => {
       return (
         <div key={saved.data.id}>
           <div>{saved.data.title}</div>
@@ -19,8 +19,11 @@ class ListSaved extends React.Component {
 }
 
 const mapStateToProps = state => {
-  console.log(state)
-  return { userSaves: state.userHistory }
+  console.log(state.totalUserHistory)
+  return { 
+    userSaves: state.userHistory,
+    totalSaves: state.totalUserHistory
+   }
 }
 
 export default connect(mapStateToProps)(ListSaved);

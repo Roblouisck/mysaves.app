@@ -18,7 +18,7 @@ class RedditUserData extends React.Component {
   const userHistoryObject = await axios.get (`https://oauth.reddit.com/user/${userIdentityObject.data.name}/saved/.json?limit=100`, {
     headers: { 'Authorization': `bearer ${token}` }
   })
-  // console.log(userHistoryObject.data.data.dist)
+  console.log(userHistoryObject.data.data.children)
 
   // store the user history in state
   const RetrievedUserHistory = userHistoryObject.data.data.children

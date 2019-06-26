@@ -9,7 +9,7 @@ export const UserHistoryReducer = (userData=[], action) => {
 
 export const AppendUserHistoryReducer = (userData=[], action) => {
   if (action.type === 'APPEND_USER_DATA') {
-    return [...userData, action.payload]
+    return  [...userData.concat(action.payload)] 
   }
   return userData;
 }
