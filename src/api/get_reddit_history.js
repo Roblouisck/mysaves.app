@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React from 'react';
 import { connect } from 'react-redux';
-import { storeUserHistory } from '../actions/index.js'
+import { storeUserHistory, appendUserHistory } from '../actions/index.js'
 import ListSaved from '../components/ListSaved'
 
 class RedditUserData extends React.Component {
@@ -18,10 +18,24 @@ class RedditUserData extends React.Component {
   const userHistoryObject = await axios.get (`https://oauth.reddit.com/user/${userIdentityObject.data.name}/saved/.json?limit=100`, {
     headers: { 'Authorization': `bearer ${token}` }
   })
+  // console.log(userHistoryObject.data.data.dist)
 
   // store the user history in state
   const RetrievedUserHistory = userHistoryObject.data.data.children
-  this.props.storeUserHistory(RetrievedUserHistory)
+  this.props.storeUserHistory(RetrievedUserHistory) && this.props.appendUserHistory(RetrievedUserHistory)
+
+  // auto pagination
+  while (this.props.userHistory.length > 0) {
+    let { userHistory } = this.props
+    let lastPage = userHistory[userHistory.length-1].data.name
+
+    const response = await axios.get (`https://oauth.reddit.com/user/${userIdentityObject.data.name}/saved/.json?limit=100&after=${lastPage}`, {
+    headers: { 'Authorization': `bearer ${token}` }
+  })
+    console.log('a loop');
+    this.props.storeUserHistory(response.data.data.children)
+    this.props.appendUserHistory(response.data.data.children)
+  }
 }
 
   render() {
@@ -34,4 +48,4 @@ const mapStateToProps = state => {
   return { userHistory: state.userHistory }
 }
 
-export default connect(mapStateToProps, {storeUserHistory})(RedditUserData);
+export default connect(mapStateToProps, {storeUserHistory, appendUserHistory})(RedditUserData);

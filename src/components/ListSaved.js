@@ -19,6 +19,7 @@ class ListSaved extends React.Component {
 }
 
 const mapStateToProps = state => {
+  console.log(state)
   return { userSaves: state.userHistory }
 }
 
