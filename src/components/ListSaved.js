@@ -8,7 +8,6 @@ class ListSaved extends React.Component {
   componentDidMount (props) {
     const params = new URLSearchParams(this.props.location.hash);
     const token = params.get('#access_token')
-
     this.props.storeInitialData(token)
 
     setTimeout(() => {
@@ -16,16 +15,17 @@ class ListSaved extends React.Component {
     }, 3000)
   }
 
-  autoPagination = async (token, response) => {
+  autoPagination = async token => {
     while (this.props.userSaves.length > 0) {
-      let { userSaves } = this.props
-      let lastPage = userSaves[userSaves.length-1].data.name
-      
-      let response = await axios.get (`https://oauth.reddit.com/user/BetterRedditSaves/saved/.json?limit=100&after=${lastPage}`, {
+      const { userSaves } = this.props
+      const lastPage = userSaves[userSaves.length-1].data.name
+
+      const userSavesObject = await axios.get (`https://oauth.reddit.com/user/${this.props.username}/saved/.json?limit=100&after=${lastPage}`, {
       headers: { 'Authorization': `bearer ${token}` }
     })
-      this.props.storeUserHistory(response.data.data.children)
-      this.props.appendUserHistory(response.data.data.children)
+      const currentPageSaves = userSavesObject.data.data.children
+      this.props.storeUserHistory(currentPageSaves)
+      this.props.appendUserHistory(currentPageSaves)
     }
   }
 
@@ -47,6 +47,7 @@ class ListSaved extends React.Component {
 const mapStateToProps = state => {
   console.log(state)
   return { 
+    username: state.username,
     userSaves: state.userHistory,
     totalSaves: state.totalUserHistory
    }

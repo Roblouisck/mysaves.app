@@ -1,5 +1,12 @@
 import { combineReducers } from 'redux';
 
+export const usernameReducer = (username=null, action) => {
+  if (action.type === 'USER_IDENTITY') {
+    return action.payload
+  }
+  return username;
+}
+
 export const UserHistoryReducer = (userData=[], action) => {
   if (action.type === 'USER_DATA') {
     return action.payload
@@ -16,6 +23,7 @@ export const AppendUserHistoryReducer = (userData=[], action) => {
 
 // user state is set here
 export default combineReducers({
+  username: usernameReducer,
   userHistory: UserHistoryReducer,
   totalUserHistory: AppendUserHistoryReducer
 });
