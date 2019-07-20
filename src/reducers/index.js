@@ -1,6 +1,19 @@
 import { combineReducers } from 'redux';
 
-export const usernameReducer = (username=null, action) => {
+export const TokenReducer = (token=null, action) => {
+  if (action.type === 'TOKEN') {
+    return action.payload
+  }
+  return token;
+}
+export const AutoPaginationReducer = (boolean=false, action) => {
+  if (action.type === 'PAGINATION') {
+    return action.payload
+  }
+  return boolean;
+}
+
+export const UsernameReducer = (username=null, action) => {
   if (action.type === 'USER_IDENTITY') {
     return action.payload
   }
@@ -23,7 +36,9 @@ export const AppendUserHistoryReducer = (userData=[], action) => {
 
 // user state is set here
 export default combineReducers({
-  username: usernameReducer,
+  username: UsernameReducer,
   userHistory: UserHistoryReducer,
-  totalUserHistory: AppendUserHistoryReducer
+  totalUserHistory: AppendUserHistoryReducer,
+  runAutoPagination: AutoPaginationReducer,
+  token: TokenReducer
 });

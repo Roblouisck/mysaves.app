@@ -13,7 +13,23 @@ export const storeInitialData = (token) => {
     const userSaves = userSavesObject.data.data.children
     dispatch(storeUserHistory(userSaves))
     dispatch(appendUserHistory(userSaves))
+    dispatch(runAutoPagination(true))
     dispatch(storeUserIdentity(username))
+  }
+}
+
+export const storeToken = token => {
+  return {
+    type: 'TOKEN',
+    payload: token
+  }
+}
+
+
+export const runAutoPagination = boolean => {
+  return {
+    type: 'PAGINATION',
+    payload: boolean
   }
 }
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import AuthorizeReddit from './AuthorizeReddit'
-import { BrowserRouter, Route } from 'react-router-dom';
+import { Route, BrowserRouter } from 'react-router-dom';
 // import RedditUserData from '../api/get_reddit_history';
 import ListSaved from './ListSaved'
 
