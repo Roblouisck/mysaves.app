@@ -57,11 +57,11 @@ class ListSaved extends React.Component {
 const mapStateToProps = state => {
   console.log(state)
   return { 
-    username: state.username,
-    userSaves: state.userHistory,
-    totalSaves: state.totalUserHistory,
-    startAutoPagination: state.runAutoPagination,
-    token: state.token
+    username: state.userData.username,
+    userSaves: state.userData.userData,
+    totalSaves: state.userData.totalUserData,
+    startAutoPagination: state.pagination.runPagination,
+    token: state.userData.token
    }
 }
 

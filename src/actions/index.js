@@ -1,4 +1,11 @@
 import axios from 'axios';
+import {
+  PAGINATION,
+  TOKEN,
+  USER_IDENTITY,
+  USER_DATA,
+  APPEND_USER_DATA
+} from './types'
 
 export const storeInitialData = (token) => {
   return async (dispatch) => {
@@ -20,36 +27,35 @@ export const storeInitialData = (token) => {
 
 export const storeToken = token => {
   return {
-    type: 'TOKEN',
+    type: TOKEN,
     payload: token
   }
 }
 
-
 export const runAutoPagination = boolean => {
   return {
-    type: 'PAGINATION',
+    type: PAGINATION,
     payload: boolean
   }
 }
 
 export const storeUserIdentity = username => {
   return {
-    type: 'USER_IDENTITY',
+    type: USER_IDENTITY,
     payload: username
   }
 }
 
 export const storeUserHistory = userData => {
   return {
-    type: 'USER_DATA',
+    type: USER_DATA,
     payload: userData
   }
 }
 
 export const appendUserHistory = userData => {
   return {
-    type: 'APPEND_USER_DATA',
+    type: APPEND_USER_DATA,
     payload: userData
   }
 }

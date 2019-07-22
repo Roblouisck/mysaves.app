@@ -1,7 +1,6 @@
 import React from 'react';
 import AuthorizeReddit from './AuthorizeReddit'
 import { Route, BrowserRouter } from 'react-router-dom';
-// import RedditUserData from '../api/get_reddit_history';
 import ListSaved from './ListSaved'
 
 const App = () => {
