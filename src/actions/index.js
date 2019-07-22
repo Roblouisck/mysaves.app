@@ -1,10 +1,10 @@
 import axios from 'axios';
 import {
-  PAGINATION,
-  TOKEN,
-  USER_IDENTITY,
-  USER_DATA,
-  APPEND_USER_DATA
+  SET_PAGINATION,
+  STORE_USER_TOKEN,
+  STORE_USER_IDENTITY,
+  STORE_USER_SAVES,
+  APPEND_USER_SAVES
 } from './types'
 
 export const storeInitialData = (token) => {
@@ -18,44 +18,44 @@ export const storeInitialData = (token) => {
     })
     const username = userIdentityObject.data.name
     const userSaves = userSavesObject.data.data.children
-    dispatch(storeUserHistory(userSaves))
-    dispatch(appendUserHistory(userSaves))
-    dispatch(runAutoPagination(true))
+    dispatch(storeUserSaves(userSaves))
+    dispatch(appendUserSaves(userSaves))
+    dispatch(setPagination(true))
     dispatch(storeUserIdentity(username))
   }
 }
 
-export const storeToken = token => {
+export const storeUserToken = token => {
   return {
-    type: TOKEN,
+    type: STORE_USER_TOKEN,
     payload: token
   }
 }
 
-export const runAutoPagination = boolean => {
+export const setPagination = boolean => {
   return {
-    type: PAGINATION,
+    type: SET_PAGINATION,
     payload: boolean
   }
 }
 
 export const storeUserIdentity = username => {
   return {
-    type: USER_IDENTITY,
+    type: STORE_USER_IDENTITY,
     payload: username
   }
 }
 
-export const storeUserHistory = userData => {
+export const storeUserSaves = userSaves => {
   return {
-    type: USER_DATA,
-    payload: userData
+    type: STORE_USER_SAVES,
+    payload: userSaves
   }
 }
 
-export const appendUserHistory = userData => {
+export const appendUserSaves = userSaves => {
   return {
-    type: APPEND_USER_DATA,
-    payload: userData
+    type: APPEND_USER_SAVES,
+    payload: userSaves
   }
 }

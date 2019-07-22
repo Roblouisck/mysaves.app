@@ -1,11 +1,11 @@
 import {
-  PAGINATION
+  SET_PAGINATION
 } from '../actions/types'
 
 export default (state = {}, action) => {
   switch(action.type) {
-    case PAGINATION:
-      return {...state, runPagination: action.payload}
+    case SET_PAGINATION:
+      return {...state, runAutoPagination: action.payload}
 
     default:
       return state

@@ -1,8 +1,8 @@
 import {
-  TOKEN,
-  USER_IDENTITY,
-  USER_DATA,
-  APPEND_USER_DATA
+  STORE_USER_TOKEN,
+  STORE_USER_IDENTITY,
+  STORE_USER_SAVES,
+  APPEND_USER_SAVES
 } from '../actions/types'
 
 const INITIAL_STATE = {
@@ -14,13 +14,13 @@ const INITIAL_STATE = {
 
 export default (state = INITIAL_STATE, action) => {
   switch(action.type) {
-    case TOKEN:
+    case STORE_USER_TOKEN:
       return {...state, token: action.payload}
-    case USER_IDENTITY:
+    case STORE_USER_IDENTITY:
       return {...state, username: action.payload}
-    case USER_DATA:
+    case STORE_USER_SAVES:
       return {...state, userData: action.payload}
-    case APPEND_USER_DATA:
+    case APPEND_USER_SAVES:
       return {...state, totalUserData: [...state.totalUserData.concat(action.payload)] }
 
     default:
