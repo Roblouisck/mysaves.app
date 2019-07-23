@@ -7,9 +7,8 @@ import {
   APPEND_USER_SAVES
 } from './types'
 
-export const storeInitialData = (token) => {
+export const fetchInitialUserData = (token) => {
   return async (dispatch) => {
-
     const userIdentityObject = await axios.get ('https://oauth.reddit.com/api/v1/me', {
       headers: { 'Authorization': `bearer ${token}` }
     })

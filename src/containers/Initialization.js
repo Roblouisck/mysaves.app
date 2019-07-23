@@ -1,21 +1,20 @@
-import axios from 'axios';
 import React from 'react';
+import axios from 'axios'
 import { connect } from 'react-redux';
 import { 
-  storeInitialData,
+  fetchInitialUserData,
   storeUserToken, 
   storeUserSaves, 
   appendUserSaves,
   setPagination
 } from '../actions/index.js'
 
-
-class ListSaved extends React.Component {
+class Initialization extends React.Component {
   componentDidMount (props) {
     const params = new URLSearchParams(this.props.location.hash);
     const token = params.get('#access_token')
     this.props.storeUserToken(token)
-    this.props.storeInitialData(token)
+    this.props.fetchInitialUserData(token)
   }
 
   componentDidUpdate () {
@@ -25,8 +24,7 @@ class ListSaved extends React.Component {
     }
   }
 
-  // I keep track of the number of user saves on a page with userSaves. 
-  // I get the next page of saves, dispatch an action to store that page, which is fed back to the while loop; and append that next page to an array holding all saves.
+  // I keep track of the number of user saves on a page with userSaves. I get the next page of saves, dispatch an action to store that page, which is fed back to the while loop; and append that next page to an array holding all saves.
   async runAutoPagination () {
     while (this.props.userSaves.length > 0) {
       const lastPage = this.props.userSaves[this.props.userSaves.length-1].data.name
@@ -38,36 +36,23 @@ class ListSaved extends React.Component {
       this.props.appendUserSaves(currentPageSaves)
     }
   }
-
-  renderPostTitles = () => {
-    return this.props.totalUserSaves.map((saved) => {
-      return (
-        <div key={saved.data.id}>
-          <div>{saved.data.title}</div>
-        </div>
-      )
-    })
-  }
-
   render () {
-    return <div>{this.renderPostTitles()}</div>
+    return null
   }
 }
 
 const mapStateToProps = state => {
-  console.log(state)
   return { 
     username: state.userData.username,
     userSaves: state.userData.userData,
-    totalUserSaves: state.userData.totalUserData,
     runAutoPagination: state.pagination.runAutoPagination,
     token: state.userData.token
    }
 }
 
 export default connect(mapStateToProps, { 
-  storeInitialData,
+  fetchInitialUserData,
   storeUserToken, 
   storeUserSaves, 
   appendUserSaves,
-  setPagination })(ListSaved);
+  setPagination })(Initialization);
