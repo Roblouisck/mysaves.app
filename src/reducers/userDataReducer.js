@@ -8,8 +8,8 @@ import {
 const INITIAL_STATE = {
   token: null,
   username: null,
-  userData: [],
-  totalUserData: []
+  userSaves: [],
+  totalUserSaves: []
 }
 
 export default (state = INITIAL_STATE, action) => {
@@ -19,9 +19,9 @@ export default (state = INITIAL_STATE, action) => {
     case STORE_USER_IDENTITY:
       return {...state, username: action.payload}
     case STORE_USER_SAVES:
-      return {...state, userData: action.payload}
+      return {...state, userSaves: action.payload}
     case APPEND_USER_SAVES:
-      return {...state, totalUserData: [...state.totalUserData.concat(action.payload)] }
+      return {...state, totalUserSaves: [...state.totalUserSaves.concat(action.payload)] }
 
     default:
       return state

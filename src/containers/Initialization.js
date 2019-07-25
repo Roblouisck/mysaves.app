@@ -44,7 +44,7 @@ class Initialization extends React.Component {
 const mapStateToProps = state => {
   return { 
     username: state.userData.username,
-    userSaves: state.userData.userData,
+    userSaves: state.userData.userSaves,
     runAutoPagination: state.pagination.runAutoPagination,
     token: state.userData.token
    }

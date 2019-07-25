@@ -2,7 +2,7 @@ import {
   SET_PAGINATION
 } from '../actions/types'
 
-export default (state = {}, action) => {
+export default (state = {runAutoPagination: false}, action) => {
   switch(action.type) {
     case SET_PAGINATION:
       return {...state, runAutoPagination: action.payload}
