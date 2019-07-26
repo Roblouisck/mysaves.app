@@ -4,22 +4,55 @@ import { connect } from 'react-redux';
 class DisplaySaves extends React.Component {
 
   renderPostTitles = () => {
-    return this.props.totalUserSaves.map((saved) => {
-      const reddit_thread = 't3'
-      const post_title = saved.data.title
-      const subreddit = saved.data.subreddit
-      const post_url = `https://www.reddit.com${saved.data.permalink}`
-
-      if ( saved.kind === reddit_thread ) {
-        return (
-          <div key={saved.data.id}>
-            <div className="post"> {subreddit} </div>
-            <div className="post"> <a href={post_url}> {post_title} </a> </div>
-          </div>
-        )}
-      return null
+    const importantValues = this.props.totalUserSaves.map((saved) => {
+      return { 
+        subreddit: saved.data.subreddit, 
+        title: saved.data.title, 
+        key: saved.data.id, 
+        link: `https://www.reddit.com${saved.data.permalink}`,
+        type: saved.kind,
+        body: saved.data.body
+      }
     })
-  }
+
+    importantValues.sort((a, b) => {
+      let nameA = a.subreddit.toUpperCase();
+      let nameB = b.subreddit.toUpperCase();
+
+      if (nameA < nameB) {
+        return -1;
+      }
+      if (nameA > nameB) {
+        return 1;
+      }
+        return 0;
+      });
+    
+    return importantValues.map((saved, i) => {
+      const thread = 't3'
+      const comment = 't1'
+
+      if (saved.type === thread) {
+        return (
+          <div className="container" key={saved.key}>
+            <div className="index"> {i}. </div>
+            <div className="subreddit"> r/{saved.subreddit}: </div>
+            <div className="post"> <a href={saved.link} target="_blank" rel="noopener noreferrer"> {saved.title} </a> </div>
+          </div>
+        )
+      }
+      if (saved.type === comment) {
+        return (
+          <div className="container" key={saved.key}>
+            <div className="index"> {i}. </div>
+            <div className="subreddit"> r/{saved.subreddit}: </div>
+            <div className="comment"> "{saved.body}" </div>
+            <div className="post"> <a href={saved.link} target="_blank" rel="noopener noreferrer"> src </a> </div>
+          </div>
+        )
+      }
+    })
+  };
 
   render () {
     if (this.props.username === null) {

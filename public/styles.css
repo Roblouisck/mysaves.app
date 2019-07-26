@@ -1,3 +1,9 @@
-.post {
+.post, .subreddit, .index, .comment {
   display: inline;
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+  font-size: 14px ;
+}
+
+.subreddit, .index {
+  font-weight: bold;
 }
