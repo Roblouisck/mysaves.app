@@ -1,9 +1,13 @@
-.post, .subreddit, .index, .comment {
+.post, .subreddit_c, .subreddit_p, .index, .comment {
   display: inline;
   font-family: Verdana, Arial, Helvetica, sans-serif;
   font-size: 14px ;
 }
 
-.subreddit, .index {
+.subreddit_c, .subreddit_p, .index {
   font-weight: bold;
 }
+
+/*.post, .subreddit_p {
+  display: none;
+}*/

@@ -2,7 +2,6 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 class DisplaySaves extends React.Component {
-
   renderPostTitles = () => {
     const importantValues = this.props.totalUserSaves.map((saved) => {
       return { 
@@ -27,32 +26,65 @@ class DisplaySaves extends React.Component {
       }
         return 0;
       });
-    
-    return importantValues.map((saved, i) => {
-      const thread = 't3'
-      const comment = 't1'
 
+    const a = true
+    const b = false
+    const thread = 't3'
+    const comment = 't1'
+    const threadsArray = importantValues.filter(saved => saved.type === thread)
+    const commentsArray = importantValues.filter(saved => saved.type === comment)
+
+    // Handle threads
+    if (a === true) {
+      return threadsArray.map((saved, i) => {
+        return (
+          <div key={saved.key}>
+            <div className="index"> {i+1}. </div>
+            <div className="subreddit_p"> r/{saved.subreddit}: </div>
+            <p className="post"> <a href={saved.link} target="_blank" rel="noopener noreferrer"> {saved.title} </a> </p>
+          </div>
+        )
+      })
+    }
+
+
+    // Handle comments
+    if (b === true) {
+      return commentsArray.map((saved, i) => {
+        return (
+          <div key={saved.key}>
+            <div className="index"> {i+1}. </div>
+            <div className="subreddit_c"> r/{saved.subreddit}: </div>
+            <p className="comment"> "{saved.body}" </p>
+            <p className="comment"> <a href={saved.link} target="_blank" rel="noopener noreferrer"> src </a> </p>
+          </div>
+          )
+        })
+      }
+
+    // Else handle both
+    return importantValues.map((saved, i) => {
       if (saved.type === thread) {
         return (
-          <div className="container" key={saved.key}>
-            <div className="index"> {i}. </div>
-            <div className="subreddit"> r/{saved.subreddit}: </div>
-            <div className="post"> <a href={saved.link} target="_blank" rel="noopener noreferrer"> {saved.title} </a> </div>
+          <div key={saved.key}>
+            <div className="index"> {i+1}. </div>
+            <div className="subreddit_p"> r/{saved.subreddit}: </div>
+            <p className="post"> <a href={saved.link} target="_blank" rel="noopener noreferrer"> {saved.title} </a> </p>
           </div>
         )
       }
       if (saved.type === comment) {
         return (
-          <div className="container" key={saved.key}>
-            <div className="index"> {i}. </div>
-            <div className="subreddit"> r/{saved.subreddit}: </div>
-            <div className="comment"> "{saved.body}" </div>
-            <div className="post"> <a href={saved.link} target="_blank" rel="noopener noreferrer"> src </a> </div>
+          <div key={saved.key}>
+            <div className="index"> {i+1}. </div>
+            <div className="subreddit_c"> r/{saved.subreddit}: </div>
+            <p className="comment"> "{saved.body}" </p>
+            <p className="comment"> <a href={saved.link} target="_blank" rel="noopener noreferrer"> src </a> </p>
           </div>
         )
       }
     })
-  };
+}
 
   render () {
     if (this.props.username === null) {
