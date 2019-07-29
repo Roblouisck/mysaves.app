@@ -27,15 +27,13 @@ class DisplaySaves extends React.Component {
         return 0;
       });
 
-    const a = true
-    const b = false
     const thread = 't3'
     const comment = 't1'
     const threadsArray = importantValues.filter(saved => saved.type === thread)
     const commentsArray = importantValues.filter(saved => saved.type === comment)
 
     // Handle threads
-    if (a === true) {
+    if (this.props.onlyThreads === true) {
       return threadsArray.map((saved, i) => {
         return (
           <div key={saved.key}>
@@ -49,7 +47,7 @@ class DisplaySaves extends React.Component {
 
 
     // Handle comments
-    if (b === true) {
+    if (this.props.onlyComments === true) {
       return commentsArray.map((saved, i) => {
         return (
           <div key={saved.key}>
@@ -84,13 +82,15 @@ class DisplaySaves extends React.Component {
         )
       }
     })
-}
+  }
 
   render () {
     if (this.props.username === null) {
       return <div>Fetching your reddit saves...</div>
     }
-    return <div>{this.renderPostTitles()}</div>
+    return (
+        <div>{this.renderPostTitles()}</div>
+      ) 
   }
 }
 
@@ -98,7 +98,9 @@ const mapStateToProps = state => {
   console.log(state)
   return { 
     totalUserSaves: state.userData.totalUserSaves,
-    username: state.userData.username
+    username: state.userData.username,
+    onlyThreads: state.buttons.displayOnlyThreads,
+    onlyComments: state.buttons.displayOnlyComments
    }
 }
 

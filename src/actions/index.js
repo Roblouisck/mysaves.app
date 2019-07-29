@@ -4,7 +4,11 @@ import {
   STORE_USER_TOKEN,
   STORE_USER_IDENTITY,
   STORE_USER_SAVES,
-  APPEND_USER_SAVES
+  APPEND_USER_SAVES,
+  DISPLAY_THREADS_AND_COMMENTS,
+  DISPLAY_ONLY_THREADS,
+  DISPLAY_ONLY_COMMENTS
+
 } from './types'
 
 export const fetchInitialUserData = (token) => {
@@ -56,5 +60,26 @@ export const appendUserSaves = userSaves => {
   return {
     type: APPEND_USER_SAVES,
     payload: userSaves
+  }
+}
+
+export const displayThreadsAndComments = boolean => {
+  return {
+    type: DISPLAY_THREADS_AND_COMMENTS,
+    payload: boolean
+  }
+}
+
+export const displayOnlyThreads = boolean => {
+  return {
+    type: DISPLAY_ONLY_THREADS,
+    payload: boolean
+  }
+}
+
+export const displayOnlyComments = boolean => {
+  return {
+    type: DISPLAY_ONLY_COMMENTS,
+    payload: boolean
   }
 }
