@@ -37,3 +37,10 @@
   background-color: #209CEE;
   color: white;
 }
+
+.searchBox {
+  width: 317px;
+  height: 25px;
+  margin-bottom: 10px;
+  margin-top: 5px;
+}

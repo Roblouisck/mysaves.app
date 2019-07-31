@@ -7,7 +7,8 @@ import {
   APPEND_USER_SAVES,
   DISPLAY_THREADS_AND_COMMENTS,
   DISPLAY_ONLY_THREADS,
-  DISPLAY_ONLY_COMMENTS
+  DISPLAY_ONLY_COMMENTS,
+  STORE_USER_SEARCH
 
 } from './types'
 
@@ -81,5 +82,12 @@ export const displayOnlyComments = boolean => {
   return {
     type: DISPLAY_ONLY_COMMENTS,
     payload: boolean
+  }
+}
+
+export const storeSearchQuery = searchQuery => {
+  return {
+    type: STORE_USER_SEARCH,
+    payload: searchQuery
   }
 }
