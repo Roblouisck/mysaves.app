@@ -11,7 +11,8 @@ const INITIAL_STATE = {
   username: null,
   userSaves: [],
   totalUserSaves: [],
-  userSearch: 'placehold3r'
+  userSearch: 'placehold3r',
+  importantSaveValues: []
 }
 
 export default (state = INITIAL_STATE, action) => {
@@ -26,6 +27,8 @@ export default (state = INITIAL_STATE, action) => {
       return {...state, totalUserSaves: [...state.totalUserSaves.concat(action.payload)] }
     case STORE_USER_SEARCH:
       return {...state, userSearch: action.payload}
+    case 'STORE_IMPORTANT_SAVE_VALUES':
+      return {...state, importantSaveValues: action.payload}
 
     default:
       return state

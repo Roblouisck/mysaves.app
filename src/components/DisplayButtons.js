@@ -12,17 +12,14 @@ class DisplayButtons extends React.Component {
       switch (buttonID) {
 
           case 'All Saves':
-              console.log('All Saves');
               this.props.displayThreadsAndComments(true);
               break;
 
           case 'Threads':
-              console.log('Threads');
               this.props.displayOnlyThreads(true);
               break;
 
           case 'Comments':
-              console.log('Comments');
               this.props.displayOnlyComments(true);
               break;
 

@@ -91,3 +91,10 @@ export const storeSearchQuery = searchQuery => {
     payload: searchQuery
   }
 }
+
+export const storeImportantSaveValues = importantValues => {
+  return {
+    type: 'STORE_IMPORTANT_SAVE_VALUES',
+    payload: importantValues
+  }
+}
