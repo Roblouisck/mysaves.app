@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { 
   fetchInitialUserData,
   storeUserToken, 
-  storeUserSaves, 
+  storeUserSavesTemporarily, 
   appendUserSaves,
   setPagination
 } from '../actions/index.js'
@@ -32,10 +32,11 @@ class Initialization extends React.Component {
       headers: { 'Authorization': `bearer ${this.props.token}` }
     })
       const currentPageSaves = userSavesObject.data.data.children
-      this.props.storeUserSaves(currentPageSaves)
+      this.props.storeUserSavesTemporarily(currentPageSaves)
       this.props.appendUserSaves(currentPageSaves)
     }
   }
+
   render () {
     return null
   }
@@ -44,7 +45,7 @@ class Initialization extends React.Component {
 const mapStateToProps = state => {
   return { 
     username: state.userData.username,
-    userSaves: state.userData.userSaves,
+    userSaves: state.userData.temporaryUserSaves,
     runAutoPagination: state.pagination.runAutoPagination,
     token: state.userData.token
    }
@@ -53,6 +54,6 @@ const mapStateToProps = state => {
 export default connect(mapStateToProps, { 
   fetchInitialUserData,
   storeUserToken, 
-  storeUserSaves, 
+  storeUserSavesTemporarily, 
   appendUserSaves,
   setPagination })(Initialization);

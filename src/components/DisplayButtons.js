@@ -8,24 +8,24 @@ import {
 
 class DisplayButtons extends React.Component {
   myFunction = event => {
-      const buttonID = event.target.id;
-      switch (buttonID) {
+    const buttonID = event.target.id;
+    switch (buttonID) {
 
-          case 'All Saves':
-              this.props.displayThreadsAndComments(true);
-              break;
+        case 'All Saves':
+            this.props.displayThreadsAndComments(true);
+            break;
 
-          case 'Threads':
-              this.props.displayOnlyThreads(true);
-              break;
+        case 'Threads':
+            this.props.displayOnlyThreads(true);
+            break;
 
-          case 'Comments':
-              this.props.displayOnlyComments(true);
-              break;
+        case 'Comments':
+            this.props.displayOnlyComments(true);
+            break;
 
-          default:
-              return false;
-        }
+        default:
+            return false;
+      }
     }
 
 
@@ -46,7 +46,6 @@ class DisplayButtons extends React.Component {
 }
 
 const mapStateToProps = state => {
-  console.log(state)
   return { 
     username: state.userData.username
    }

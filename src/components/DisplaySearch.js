@@ -2,10 +2,14 @@ import React from 'react';
 import { storeSearchQuery } from '../actions/index'
 import { connect } from 'react-redux'
 
-class SearchBox extends React.Component {
+class DisplaySearch extends React.Component {
   render() {
+
+      if (this.props.username === null) {
+        return null
+      }
+
       return (
-        <div>
           <form>
             <input 
               className="searchBox"
@@ -14,13 +18,14 @@ class SearchBox extends React.Component {
               onChange={ (e) => this.props.storeSearchQuery(e.target.value) }
               />
           </form>
-        </div>
       );
     }
   }
 
 const mapStateToProps = state => {
-  return {}
+  return {
+    username: state.userData.username,
+  }
 }
 
-export default connect(mapStateToProps, { storeSearchQuery })(SearchBox);
+export default connect(mapStateToProps, { storeSearchQuery })(DisplaySearch);

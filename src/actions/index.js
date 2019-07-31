@@ -3,12 +3,13 @@ import {
   SET_PAGINATION,
   STORE_USER_TOKEN,
   STORE_USER_IDENTITY,
-  STORE_USER_SAVES,
+  STORE_USER_SAVES_TEMPORARILY,
   APPEND_USER_SAVES,
   DISPLAY_THREADS_AND_COMMENTS,
   DISPLAY_ONLY_THREADS,
   DISPLAY_ONLY_COMMENTS,
-  STORE_USER_SEARCH
+  STORE_USER_SEARCH,
+  STORE_IMPORTANT_SAVE_VALUES
 
 } from './types'
 
@@ -22,7 +23,7 @@ export const fetchInitialUserData = (token) => {
     })
     const username = userIdentityObject.data.name
     const userSaves = userSavesObject.data.data.children
-    dispatch(storeUserSaves(userSaves))
+    dispatch(storeUserSavesTemporarily(userSaves))
     dispatch(appendUserSaves(userSaves))
     dispatch(setPagination(true))
     dispatch(storeUserIdentity(username))
@@ -50,9 +51,9 @@ export const storeUserIdentity = username => {
   }
 }
 
-export const storeUserSaves = userSaves => {
+export const storeUserSavesTemporarily = userSaves => {
   return {
-    type: STORE_USER_SAVES,
+    type: STORE_USER_SAVES_TEMPORARILY,
     payload: userSaves
   }
 }
@@ -94,7 +95,7 @@ export const storeSearchQuery = searchQuery => {
 
 export const storeImportantSaveValues = importantValues => {
   return {
-    type: 'STORE_IMPORTANT_SAVE_VALUES',
+    type: STORE_IMPORTANT_SAVE_VALUES,
     payload: importantValues
   }
 }

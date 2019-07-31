@@ -8,10 +8,6 @@
   font-weight: bold;
 }
 
-/*.post, .subreddit_p {
-  display: none;
-}*/
-
 .btn-group button {
   background-color: #FFFFFF; /* Green background */
   border: 1px solid #DBDBDB; /* Green border */
@@ -36,6 +32,10 @@
 .btn-group button:hover {
   background-color: #209CEE;
   color: white;
+}
+
+.btn-group button:active {
+  background-color: #209CEE
 }
 
 .searchBox {

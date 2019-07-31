@@ -4,12 +4,12 @@ import SortSaves from '../containers/SortSaves'
 
 class DisplaySaves extends React.Component {
 
-  handleSearch = (values) => {
+  handleSearch = (arrayType) => {
     const thread = 't3'
     const comment = 't1'
     const { userSearch } = this.props
 
-      return values.map((saved, i) => {
+      return arrayType.map((saved, i) => {
         const searchIncludesTitle = saved.title.toLowerCase().includes(userSearch.toLowerCase())
         const searchIncludesComment = saved.body.toLowerCase().includes(userSearch.toLowerCase())
         const searchIncludesSubreddit = saved.subreddit.toLowerCase().includes(userSearch.toLowerCase())
@@ -124,15 +124,21 @@ class DisplaySaves extends React.Component {
   }
 
   render () {
-    if (this.props.username === null) {
-      return <div>Fetching your reddit saves...</div>
+    // SortSaves is running a componentDidUpdate, so needs to continue updating threadsAndCommentsArray after initial fetching.
+    if (this.props.threadsAndCommentsArray.length < 1) {
+      return (
+        <div>
+          <div>Fetching your reddit saves...</div>
+          <SortSaves />
+        </div>
+      )
     }
     return (
       <div>
         <SortSaves />
-        <div>{this.renderSaves()}</div>
+        {this.renderSaves()}
       </div>
-      ) 
+      )
   }
 }
 
