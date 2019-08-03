@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import SortSaves from '../containers/SortSaves'
+import OrganizeSaves from '../containers/OrganizeSaves'
 import LoadingScreen from './LoadingScreen'
 import DisplayButtons from './DisplayButtons'
 import DisplaySearch from './DisplaySearch'
@@ -11,30 +11,29 @@ class DisplaySaves extends React.Component {
     const comment = 't1'
     const { userSearch } = this.props
 
-      return arrayType.map((saved, i) => {
-        const searchIncludesTitle = saved.title.toLowerCase().includes(userSearch.toLowerCase())
-        const searchIncludesComment = saved.body.toLowerCase().includes(userSearch.toLowerCase())
-        const searchIncludesSubreddit = saved.subreddit.toLowerCase().includes(userSearch.toLowerCase())
+      return arrayType.map((save, i) => {
+        const searchIncludesTitle = save.title.toLowerCase().includes(userSearch.toLowerCase())
+        const searchIncludesComment = save.body.toLowerCase().includes(userSearch.toLowerCase())
+        const searchIncludesSubreddit = save.subreddit.toLowerCase().includes(userSearch.toLowerCase())
 
         if ( searchIncludesTitle || searchIncludesComment || searchIncludesSubreddit ) {
 
-          if (saved.type === thread) {
+          if (save.type === thread) {
             return (
-              <div key={saved.key}>
+              <div key={save.key}>
                 <div className="index"> {i+1}. </div>
-                <div className="subreddit_p"> {saved.subreddit}: </div>
-                <p className="post"> <a href={saved.link} target="_blank" rel="noopener noreferrer"> {saved.title} </a> </p>
+                {save.displaySubreddit_t}
+                {save.displayTitle}
               </div>
             )
           }
 
-          if (saved.type === comment) {
+          if (save.type === comment) {
             return (
-              <div key={saved.key}>
+              <div key={save.key}>
                 <div className="index"> {i+1}. </div>
-                <div className="subreddit_c"> {saved.subreddit}: </div>
-                <p className="comment"> "{saved.body}" </p>
-                <p className="comment"> <a href={saved.link} target="_blank" rel="noopener noreferrer"> src </a> </p>
+                {save.displaySubreddit_c}
+                {save.displayComment}
               </div>
             )
           }
@@ -44,14 +43,13 @@ class DisplaySaves extends React.Component {
   }
 
   renderSaves = () => {
-    console.log(this.props.threadsAndCommentsArray[0].body)
     const thread = 't3'
     const comment = 't1'
     const { userSearch } = this.props
     const { threadsAndCommentsArray } = this.props
     const searchDetected = (userSearch.trim().length > 0) 
-    const threadsArray = threadsAndCommentsArray.filter(saved => saved.type === thread)
-    const commentsArray = threadsAndCommentsArray.filter(saved => saved.type === comment)
+    const threadsArray = threadsAndCommentsArray.filter(save => save.type === thread)
+    const commentsArray = threadsAndCommentsArray.filter(save => save.type === comment)
 
     // 1. Check if the threads button was pushed
     if (this.props.onlyThreads === true) {
@@ -62,12 +60,12 @@ class DisplaySaves extends React.Component {
       }
 
       // Else show all threads unfiltered
-      return threadsArray.map((saved, i) => {
+      return threadsArray.map((save, i) => {
         return (
-          <div key={saved.key}>
+          <div key={save.key}>
             <div className="index"> {i+1}. </div>
-            <div className="subreddit_p"> {saved.subreddit}: </div>
-            <p className="post"> <a href={saved.link} target="_blank" rel="noopener noreferrer"> {saved.title} </a> </p>
+            {save.displaySubreddit_t}
+            {save.displayTitleOnly}
           </div>
         )
       })
@@ -83,17 +81,12 @@ class DisplaySaves extends React.Component {
       }
 
       // Else show all comments unfiltered
-      return commentsArray.map((saved, i) => {
+      return commentsArray.map((save, i) => {
         return (
-          <div key={saved.key}>
+          <div key={save.key}>
             <div className="index"> {i+1}. </div>
-            <div className="subreddit_c"> {saved.subreddit}: </div>
-            <div className="a">
-             <div className="b">
-              <pre className="comment">{saved.body}</pre>
-              <p className="comment"> <a href={saved.link} target="_blank" rel="noopener noreferrer"> src </a> </p>
-              </div>
-            </div>
+            {save.displaySubreddit_c}
+            {save.displayComment}
           </div>
           )
         })
@@ -107,23 +100,22 @@ class DisplaySaves extends React.Component {
 
 
     // 4. Else show all thread & comment saves unfiltered
-    return threadsAndCommentsArray.map((saved, i) => {
-      if (saved.type === thread) {
+    return threadsAndCommentsArray.map((save, i) => {
+      if (save.type === thread) {
         return (
-          <div key={saved.key}>
+          <div key={save.key}>
             <div className="index"> {i+1}. </div>
-            <div className="subreddit_p"> {saved.subreddit}: </div>
-            <p className="post"> <a href={saved.link} target="_blank" rel="noopener noreferrer"> {saved.title} </a> </p>
+            {save.displaySubreddit_t}
+            {save.displayTitle}
           </div>
         )
       }
-      if (saved.type === comment) {
+      if (save.type === comment) {
         return (
-          <div key={saved.key}>
+          <div key={save.key}>
             <div className="index"> {i+1}. </div>
-            <div className="subreddit_c"> {saved.subreddit}: </div>
-            <p className="comment"> "{saved.body}" </p>
-            <p className="comment"> <a href={saved.link} target="_blank" rel="noopener noreferrer"> src </a> </p>
+            {save.displaySubreddit_c}
+            {save.displayComment}
           </div>
         )
       }
@@ -131,18 +123,18 @@ class DisplaySaves extends React.Component {
   }
 
   render () {
-    // SortSaves is running a componentDidUpdate, so needs to continue updating threadsAndCommentsArray after initial fetching.
+    // OrganizeSaves is running a componentDidUpdate, so needs to continue updating threadsAndCommentsArray after initial fetching.
     if (this.props.threadsAndCommentsArray.length < 1) {
       return (
         <div>
           <p>Fetching your reddit saves...</p>
-          <SortSaves />
+          <OrganizeSaves />
         </div>
       )
     }
     return (
       <div>
-        <SortSaves />
+        <OrganizeSaves />
         <DisplayButtons />
         <DisplaySearch />
         <div className="saves-grid-container">
