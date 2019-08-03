@@ -4,20 +4,19 @@ import { connect } from 'react-redux'
 
 class DisplaySearch extends React.Component {
   render() {
-
-      if (this.props.username === null) {
-        return null
-      }
-
       return (
-          <form>
-            <input 
-              className="searchBox"
-              type="search"
-              placeholder="Search saves"
-              onChange={ (e) => this.props.storeSearchQuery(e.target.value) }
-              />
-          </form>
+        <div className="grid-header-container">
+          <div className="grid-header">
+            <form>
+              <input 
+                className="searchBox"
+                type="search"
+                placeholder="Search saves"
+                onChange={ (e) => this.props.storeSearchQuery(e.target.value) }
+                />
+            </form>
+          </div>
+        </div>
       );
     }
   }

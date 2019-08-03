@@ -1,9 +1,11 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import SortSaves from '../containers/SortSaves'
+import LoadingScreen from './LoadingScreen'
+import DisplayButtons from './DisplayButtons'
+import DisplaySearch from './DisplaySearch'
 
 class DisplaySaves extends React.Component {
-
   handleSearch = (arrayType) => {
     const thread = 't3'
     const comment = 't1'
@@ -42,6 +44,7 @@ class DisplaySaves extends React.Component {
   }
 
   renderSaves = () => {
+    console.log(this.props.threadsAndCommentsArray[0].body)
     const thread = 't3'
     const comment = 't1'
     const { userSearch } = this.props
@@ -85,8 +88,12 @@ class DisplaySaves extends React.Component {
           <div key={saved.key}>
             <div className="index"> {i+1}. </div>
             <div className="subreddit_c"> {saved.subreddit}: </div>
-            <p className="comment"> "{saved.body}" </p>
-            <p className="comment"> <a href={saved.link} target="_blank" rel="noopener noreferrer"> src </a> </p>
+            <div className="a">
+             <div className="b">
+              <pre className="comment">{saved.body}</pre>
+              <p className="comment"> <a href={saved.link} target="_blank" rel="noopener noreferrer"> src </a> </p>
+              </div>
+            </div>
           </div>
           )
         })
@@ -128,7 +135,7 @@ class DisplaySaves extends React.Component {
     if (this.props.threadsAndCommentsArray.length < 1) {
       return (
         <div>
-          <div>Fetching your reddit saves...</div>
+          <p>Fetching your reddit saves...</p>
           <SortSaves />
         </div>
       )
@@ -136,9 +143,15 @@ class DisplaySaves extends React.Component {
     return (
       <div>
         <SortSaves />
-        {this.renderSaves()}
+        <DisplayButtons />
+        <DisplaySearch />
+        <div className="saves-grid-container">
+          <div className="saves-grid">
+            {this.renderSaves()}
+          </div>
+        </div>
       </div>
-      )
+    )
   }
 }
 

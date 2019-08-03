@@ -9,23 +9,12 @@
 }
 
 .btn-group button {
-  background-color: #FFFFFF; /* Green background */
-  border: 1px solid #DBDBDB; /* Green border */
-  color: black; /* White text */
-  padding: 10px 24px; /* Some padding */
-  cursor: pointer; /* Pointer/hand icon */
-  float: left; /* Float the buttons side by side */
-}
-
-.btn-group button:not(:last-child) {
-  border-right: none; /* Prevent double borders */
-}
-
-/* Clear floats (clearfix hack) */
-.btn-group:after {
-  content: "";
-  clear: both;
-  display: table;
+  background-color: #FFFFFF; 
+  border: 1px solid #DBDBDB; 
+  color: black; 
+  padding: 10px 24px; 
+  cursor: pointer; 
+  float: left; 
 }
 
 /* Add a background color on hover */
@@ -43,4 +32,74 @@
   height: 25px;
   margin-bottom: 10px;
   margin-top: 5px;
+}
+
+/*.grid-header-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+}
+
+.grid-header {
+  grid-column-start: 3;
+}
+*/
+
+/*.comment, .post, .subreddit_p, .subreddit_c, .index {
+  display: none;
+}*/
+
+.grid-header-container {
+  display: grid;
+  grid-template-columns: 5% 90% 5%;
+  justify-items: center;
+
+}
+
+.grid-header {
+  grid-column-start: 2;
+}
+
+.saves-grid-container {
+  margin-top: 15px;
+  display: grid;
+  grid-template-columns: 3% 94% 3%;
+}
+
+.saves-grid {
+  grid-column-start: 2;
+}
+
+/*p {
+ text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  word-wrap: break-word;
+}
+*/
+
+.a {
+  margin-top: 2px;
+  margin-bottom: 12px;
+  display: grid;
+  grid-template-columns: 1% 98% 1%;
+}
+
+/*.b {
+  grid-column-start: 2;
+  padding: 5px;
+  border-left: 1px solid #DBDBDB;
+  border-top: 1px dotted #DBDBDB;
+  border-spacing: 5px;
+}*/
+
+.b {
+  grid-column-start: 2;
+  padding: 5px;
+  border-left: 1px solid #DBDBDB;
+  border-top: 1px dotted #DBDBDB;
+  border-spacing: 5px;
+}
+
+pre {
+  white-space:pre-wrap
 }

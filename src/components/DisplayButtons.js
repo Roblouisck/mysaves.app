@@ -30,15 +30,14 @@ class DisplayButtons extends React.Component {
 
 
   render () {
-    if (this.props.username === null) {
-      return null
-    }
     return (
-      <div className="container">
-        <div className="btn-group">
-          <button onClick={this.myFunction} id="All Saves">All Saves</button>
-          <button onClick={this.myFunction} id="Threads">Threads</button>
-          <button onClick={this.myFunction} id="Comments">Comments</button>
+      <div className="grid-header-container">
+        <div className="grid-header">
+          <div className="btn-group">
+            <button onClick={this.myFunction} id="All Saves">All Saves</button>
+            <button onClick={this.myFunction} id="Threads">Threads</button>
+            <button onClick={this.myFunction} id="Comments">Comments</button>
+          </div>
         </div>
       </div>
       ) 
