@@ -6,14 +6,14 @@ class OrganizeSaves extends React.Component {
   decodeHtml(html) {
     var txt = document.createElement("textarea");
     txt.innerHTML = html;
-    return txt.value.replace(/[&#x200B;]/g, '');
+    return txt.value.replace(`[&#x200B;]`, '');
 }
 
   componentDidUpdate() {
     const importantValues = this.props.totalUserSaves.map((save) => {
       return { 
         subreddit: String(`r/${save.data.subreddit}`), 
-        title: String(save.data.title), 
+        title: this.decodeHtml(String(save.data.title)), 
         key: save.data.id, 
         link: String(`https://www.reddit.com${save.data.permalink}`),
         type: String(save.kind),
