@@ -3,6 +3,12 @@ import { connect } from 'react-redux';
 import { storeImportantSaveValues } from '../actions/index'
 
 class OrganizeSaves extends React.Component {
+  decodeHtml(html) {
+    var txt = document.createElement("textarea");
+    txt.innerHTML = html;
+    return txt.value.replace(/[&#x200B;]/g, '');
+}
+
   componentDidUpdate() {
     const importantValues = this.props.totalUserSaves.map((save) => {
       return { 
@@ -11,7 +17,7 @@ class OrganizeSaves extends React.Component {
         key: save.data.id, 
         link: String(`https://www.reddit.com${save.data.permalink}`),
         type: String(save.kind),
-        body: String(save.data.body)
+        body: this.decodeHtml(String(save.data.body))
       }
     })
 
@@ -57,7 +63,7 @@ class OrganizeSaves extends React.Component {
           </div>, 
 
         displayTitleOnly:
-          <p className="thread"> 
+          <p className="threadOnly"> 
             <a href={save.link} target="_blank" rel="noopener noreferrer"> {save.title} </a> 
           </p>,
 

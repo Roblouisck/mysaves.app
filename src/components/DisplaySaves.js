@@ -2,8 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import OrganizeSaves from '../containers/OrganizeSaves'
 import LoadingScreen from './LoadingScreen'
-import DisplayButtons from './DisplayButtons'
-import DisplaySearch from './DisplaySearch'
+import RenderHeader from './RenderHeader'
 
 class DisplaySaves extends React.Component {
   handleSearch = (arrayType) => {
@@ -23,7 +22,7 @@ class DisplaySaves extends React.Component {
               <div key={save.key}>
                 <div className="index"> {i+1}. </div>
                 {save.displaySubreddit_t}
-                {save.displayTitle}
+                {save.displayTitleOnly}
               </div>
             )
           }
@@ -134,15 +133,14 @@ class DisplaySaves extends React.Component {
     }
     return (
       <div>
-        <OrganizeSaves />
-        <DisplayButtons />
-        <DisplaySearch />
-        <div className="saves-grid-container">
-          <div className="saves-grid">
-            {this.renderSaves()}
-          </div>
+      <OrganizeSaves />
+      <RenderHeader />
+      <div className="saves-grid-container">
+        <div className="saves-grid">
+          {this.renderSaves()}
         </div>
       </div>
+            </div>
     )
   }
 }

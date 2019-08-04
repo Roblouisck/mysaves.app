@@ -1,8 +1,23 @@
-.thread, .subreddit_c, .subreddit_t, .index, .comment {
+html, body {
+  margin: 0;
+}
+
+.threadOnly, .subreddit_c, .subreddit_t, .index, .comment {
   display: inline;
   font-family: Verdana, Arial, Helvetica, sans-serif;
+  color: #1A1A1B;
   font-size: 14px ;
 }
+
+
+.thread {
+  display: inline;
+  color: #1A1A1B;
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+}
+
 
 .subreddit_c, .subreddit_t, .index {
   font-weight: bold;
@@ -10,14 +25,16 @@
 
 .btn-group button {
   background-color: #FFFFFF; 
-  border: 1px solid #DBDBDB; 
+  border: 1px solid #919191; 
+  border-radius: 2px;
   color: black; 
   padding: 10px 24px; 
   cursor: pointer; 
   float: left; 
+  margin-left: 3px;
+  
 }
 
-/* Add a background color on hover */
 .btn-group button:hover {
   background-color: #209CEE;
   color: white;
@@ -28,41 +45,24 @@
 }
 
 .searchBox {
-  width: 317px;
+  width: 325px;
   height: 25px;
-  margin-bottom: 10px;
   margin-top: 5px;
-}
-
-/*.grid-header-container {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-}
-
-.grid-header {
-  grid-column-start: 3;
-}
-*/
-
-/*.comment, .thread, .subreddit_p, .subreddit_c, .index {
-  display: none;
-}*/
-
-.grid-header-container {
-  display: grid;
-  grid-template-columns: 5% 90% 5%;
-  justify-items: center;
-
-}
-
-.grid-header {
-  grid-column-start: 2;
+  margin-left: 3px;
+  background-color: white;
+  border: 1px solid #919191;
 }
 
 .saves-grid-container {
-  margin-top: 15px;
+  padding: 25px 0;
+  margin-left: 25px;
+  margin-right: 25px;
+  border-radius: 2px;
   display: grid;
-  grid-template-columns: 3% 94% 3%;
+  grid-template-columns: 1% 98% 1%;
+  background-color: white;
+  border: 1px solid #DBDBDB;
+  border-top: 3px solid pink;
 }
 
 .saves-grid {
@@ -86,4 +86,23 @@
 
 pre {
   white-space:pre-wrap
+}
+
+body {
+  /*background-color: #DAE0E6;*/
+background-image: url("assets/background.png");
+
+}
+
+.grid-header-container {
+  margin-top: 15px;
+  display: grid;
+  grid-template-columns: 1% 98% 1%;
+  justify-items: center;
+  background-size: 100px 100px;
+}
+
+.grid-header {
+  grid-column-start: 2;
+  margin-bottom: 10px;
 }
