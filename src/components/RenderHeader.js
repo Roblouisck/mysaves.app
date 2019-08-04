@@ -12,15 +12,15 @@ class RenderHeader extends React.Component {
     const buttonID = event.target.id;
     switch (buttonID) {
 
-        case 'All Saves':
+        case 'all-saves':
             this.props.displayThreadsAndComments(true);
             break;
 
-        case 'Threads':
+        case 'only-threads':
             this.props.displayOnlyThreads(true);
             break;
 
-        case 'Comments':
+        case 'only-comments':
             this.props.displayOnlyComments(true);
             break;
 
@@ -35,18 +35,19 @@ class RenderHeader extends React.Component {
           <div className="grid-header">
 
             <div className="btn-group">
-              <button onClick={this.handleButtons} id="All Saves">All Saves</button>
-              <button onClick={this.handleButtons} id="Threads">Threads</button>
-              <button onClick={this.handleButtons} id="Comments">Comments</button>
+              <button onClick={this.handleButtons} id="all-saves">All Saves</button>
+              <button onClick={this.handleButtons} id="only-threads">Threads</button>
+              <button onClick={this.handleButtons} id="only-comments">Comments</button>
             </div>
 
             <form>
               <input 
-                className="searchBox"
+                className="searchBox fas fa-search"
                 type="search"
-                placeholder="Search saves"
+                placeholder="Search or filter by subreddit"
                 onChange={ (e) => this.props.storeSearchQuery(e.target.value) }
                 />
+                <span class="fa fa-search"></span>
             </form>
 
           </div>
