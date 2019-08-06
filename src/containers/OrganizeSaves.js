@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { storeImportantSaveValues } from '../actions/index'
+import { storeSaveValuesWithHTML, storeSaveValuesChronologically } from '../actions/index'
 
 class OrganizeSaves extends React.Component {
   decodeHtml(html) {
@@ -21,20 +21,7 @@ class OrganizeSaves extends React.Component {
       }
     })
 
-    const importantValuesSorted = importantValues.sort((a, b) => {
-      let nameA = a.subreddit.toUpperCase();
-      let nameB = b.subreddit.toUpperCase();
-
-      if (nameA < nameB) {
-        return -1;
-      }
-      if (nameA > nameB) {
-        return 1;
-      }
-        return 0;
-      });
-
-    const valuesMappedToUI = importantValuesSorted.map( save => {
+    const valuesMappedToHTML = importantValues.map( save => {
       return { 
         subreddit: save.subreddit, 
         title: save.title, 
@@ -87,7 +74,76 @@ class OrganizeSaves extends React.Component {
       }
     })
 
-    this.props.storeImportantSaveValues(valuesMappedToUI)
+    this.props.storeSaveValuesChronologically(valuesMappedToHTML)
+
+    const importantValuesSorted = importantValues.sort((a, b) => {
+      let nameA = a.subreddit.toUpperCase();
+      let nameB = b.subreddit.toUpperCase();
+
+      if (nameA < nameB) {
+        return -1;
+      }
+      if (nameA > nameB) {
+        return 1;
+      }
+        return 0;
+      });
+
+    const valuesMappedToHTMLSorted = importantValuesSorted.map( save => {
+      return { 
+        subreddit: save.subreddit, 
+        title: save.title, 
+        key: save.key, 
+        link: save.link,
+        type: save.type,
+        body: save.body,
+
+        displaySubreddit_t: 
+          <div className="subreddit_t"> 
+            {save.subreddit}: 
+          </div>, 
+
+        displaySubreddit_c: 
+          <div className="subreddit_c"> 
+            {save.subreddit}: 
+          </div>, 
+
+        displayTitle: 
+          <div className="comments-grid-container">
+            <div className="comments-grid">
+              <p className="thread"> 
+                <a href={save.link} target="_blank" rel="noopener noreferrer"> {save.title} </a> 
+              </p>
+            </div>
+          </div>, 
+
+        displayTitle_ThreadOnly:
+          <p className="threadOnly"> 
+            <a className="titleOnly" href={save.link} target="_blank" rel="noopener noreferrer"> {save.title} </a> 
+          </p>,
+
+        displayBody: 
+          <pre className="comment">
+            {save.body}
+          </pre>,
+
+        displayCommentSource: 
+          <p className="comment"> 
+            <a href={save.link} target="_blank" rel="noopener noreferrer"> src </a> 
+          </p>,
+
+        displayComment:
+          <div className="comments-grid-container">
+            <div className="comments-grid">
+              <pre className="comment">{save.body}</pre>
+              <p className="comment"> <a href={save.link} target="_blank" rel="noopener noreferrer"> src </a> </p>
+            </div>
+        </div>
+      }
+    })
+
+
+    this.props.storeSaveValuesWithHTML(valuesMappedToHTMLSorted)
   }
 
 
@@ -102,4 +158,4 @@ const mapStateToProps = state => {
    }
 }
 
-export default connect(mapStateToProps, { storeImportantSaveValues })(OrganizeSaves);
+export default connect(mapStateToProps, { storeSaveValuesWithHTML, storeSaveValuesChronologically })(OrganizeSaves);

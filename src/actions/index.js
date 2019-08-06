@@ -9,7 +9,8 @@ import {
   DISPLAY_ONLY_THREADS,
   DISPLAY_ONLY_COMMENTS,
   STORE_USER_SEARCH,
-  STORE_IMPORTANT_SAVE_VALUES
+  STORE_SAVE_VALUES_WITH_HTML,
+  STORE_SAVE_VALUES_CHRONOLOGICALLY
 
 } from './types'
 
@@ -93,9 +94,16 @@ export const storeSearchQuery = searchQuery => {
   }
 }
 
-export const storeImportantSaveValues = importantValues => {
+export const storeSaveValuesWithHTML = importantValues => {
   return {
-    type: STORE_IMPORTANT_SAVE_VALUES,
+    type: STORE_SAVE_VALUES_WITH_HTML,
+    payload: importantValues
+  }
+}
+
+export const storeSaveValuesChronologically = importantValues => {
+  return {
+    type: STORE_SAVE_VALUES_CHRONOLOGICALLY,
     payload: importantValues
   }
 }

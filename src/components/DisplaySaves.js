@@ -57,10 +57,11 @@ class DisplaySaves extends React.Component {
     const thread = 't3'
     const comment = 't1'
     const { userSearch } = this.props
-    const { threadsAndCommentsArray } = this.props
+    const { allSaves } = this.props
+    const { allSavesChronologically } = this.props
     const searchDetected = (userSearch.trim().length > 0) 
-    const threadsArray = threadsAndCommentsArray.filter(save => save.type === thread)
-    const commentsArray = threadsAndCommentsArray.filter(save => save.type === comment)
+    const threadsArray = allSaves.filter(save => save.type === thread)
+    const commentsArray = allSaves.filter(save => save.type === comment)
 
     // 1. Check if the threads button was pushed
     if (this.props.onlyThreads === true) {
@@ -105,12 +106,12 @@ class DisplaySaves extends React.Component {
 
     // 3. Check for custom search if no button was pressed
       if (searchDetected && userSearch !== "placehold3r") {
-      return this.handleSearch(threadsAndCommentsArray)
+      return this.handleSearch(allSavesChronologically)
     }
 
 
     // 4. Else show all thread & comment saves unfiltered
-    return threadsAndCommentsArray.map((save, i) => {
+    return allSavesChronologically.map((save, i) => {
       if (save.type === thread) {
         return (
           <div className="save-wrapper" key={save.key}>
@@ -133,8 +134,8 @@ class DisplaySaves extends React.Component {
   }
 
   render () {
-    // OrganizeSaves is running a componentDidUpdate, so needs to continue updating threadsAndCommentsArray after initial fetching.
-    if (this.props.threadsAndCommentsArray.length < 1) {
+    // OrganizeSaves is running a componentDidUpdate, so needs to continue updating allSaves after initial fetching.
+    if (this.props.allSaves.length < 1) {
       return (
         <div>
           <p>Fetching your reddit saves...</p>
@@ -164,7 +165,8 @@ const mapStateToProps = state => {
     onlyThreads: state.buttons.displayOnlyThreads,
     onlyComments: state.buttons.displayOnlyComments,
     userSearch: state.userData.userSearch,
-    threadsAndCommentsArray: state.userData.importantSaveValues
+    allSaves: state.userData.saveValuesWithHTML,
+    allSavesChronologically: state.userData.saveValuesChronologically
    }
 }
 

@@ -4,7 +4,8 @@ import {
   STORE_USER_SAVES_TEMPORARILY,
   APPEND_USER_SAVES,
   STORE_USER_SEARCH,
-  STORE_IMPORTANT_SAVE_VALUES
+  STORE_SAVE_VALUES_WITH_HTML,
+  STORE_SAVE_VALUES_CHRONOLOGICALLY
 } from '../actions/types'
 
 const INITIAL_STATE = {
@@ -13,7 +14,8 @@ const INITIAL_STATE = {
   temporaryUserSaves: [],
   totalUserSaves: [],
   userSearch: 'placehold3r',
-  importantSaveValues: []
+  saveValuesWithHTML: [],
+  saveValuesChronologically: []
 }
 
 export default (state = INITIAL_STATE, action) => {
@@ -28,8 +30,10 @@ export default (state = INITIAL_STATE, action) => {
       return {...state, totalUserSaves: [...state.totalUserSaves.concat(action.payload)] }
     case STORE_USER_SEARCH:
       return {...state, userSearch: action.payload}
-    case STORE_IMPORTANT_SAVE_VALUES:
-      return {...state, importantSaveValues: action.payload}
+    case STORE_SAVE_VALUES_WITH_HTML:
+      return {...state, saveValuesWithHTML: action.payload}
+    case STORE_SAVE_VALUES_CHRONOLOGICALLY:
+      return {...state, saveValuesChronologically: action.payload}
 
     default:
       return state
