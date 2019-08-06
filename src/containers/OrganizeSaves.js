@@ -62,9 +62,9 @@ class OrganizeSaves extends React.Component {
             </div>
           </div>, 
 
-        displayTitleOnly:
+        displayTitle_ThreadOnly:
           <p className="threadOnly"> 
-            <a href={save.link} target="_blank" rel="noopener noreferrer"> {save.title} </a> 
+            <a className="titleOnly" href={save.link} target="_blank" rel="noopener noreferrer"> {save.title} </a> 
           </p>,
 
         displayBody: 

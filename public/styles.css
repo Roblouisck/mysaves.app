@@ -1,5 +1,7 @@
 html, body {
   margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 .threadOnly, .subreddit_c, .subreddit_t, .index, .comment {
@@ -8,7 +10,6 @@ html, body {
   color: #1A1A1B;
   font-size: 14px ;
 }
-
 
 .thread {
   display: inline;
@@ -32,7 +33,6 @@ html, body {
   cursor: pointer; 
   float: left; 
   margin-left: 3px;
-  
 }
 
 .btn-group button:hover {
@@ -44,7 +44,6 @@ html, body {
   background-color: #209CEE
 }
 
-/* Buttons */
 #all-saves, #only-threads, #only-comments {
   font-family: 'IBM Plex Sans', sans-serif;
   font-size: 15px;
@@ -65,6 +64,10 @@ html, body {
   font-size: 16px;
 }
 
+.searchBox::-webkit-search-cancel-button {
+  -webkit-appearance: none;
+}
+
 .fa {
   position: relative;
   right: 330px;
@@ -73,33 +76,58 @@ html, body {
 
 .saves-grid-container {
   padding: 25px 0;
-  margin-left: 25px;
-  margin-right: 25px;
+  width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 2%;
+  padding-right: 3%;
   border-radius: 2px;
   display: grid;
-  grid-template-columns: 1% 98% 1%;
+  grid-template-columns: auto;
   background-color: white;
   border: 1px solid #DBDBDB;
   border-top: 3px solid pink;
 }
 
-.saves-grid {
-  grid-column-start: 2;
+.growSavesGridContainer {
+  width: 1000px;
+  padding-left: 1%;
+  padding-right: 1%;
+  grid-template-columns: 1% 98% 1%;
 }
 
 .comments-grid-container {
-  margin-top: 2px;
+  margin-top: 4px;
   margin-bottom: 29px;
   display: grid;
-  grid-template-columns: 1% 98% 1%;
+  grid-template-columns: 3% 98% 1%;
 }
 
 .comments-grid {
   grid-column-start: 2;
   padding: 5px;
   border-left: 1px solid #DBDBDB;
-  border-top: 1px dotted #DBDBDB;
+  border-top: 1px solid #e1e1e1;
   border-spacing: 5px;
+}
+
+.saves-grid {
+  grid-column-start: 2;
+}
+
+a {
+  text-decoration: none;
+}
+
+.threadOnly {
+  font-size: 15px;
+  padding-bottom: 15px;
+  margin-bottom: 15px;
+}
+
+.save-wrapper-threadsOnly {
+  padding-bottom: 3px;
+  border-top: 1px dotted #e1e1e1;
 }
 
 pre {
@@ -107,9 +135,7 @@ pre {
 }
 
 body {
-  /*background-color: #DAE0E6;*/
-background-image: url("assets/background.png");
-
+  background-image: url("assets/background.png");
 }
 
 .grid-header-container {

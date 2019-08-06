@@ -14,20 +14,27 @@ class RenderHeader extends React.Component {
 
         case 'all-saves':
             this.props.displayThreadsAndComments(true);
+            this.props.savesGridContainer.current.classList.remove('growSavesGridContainer');
             break;
 
         case 'only-threads':
             this.props.displayOnlyThreads(true);
+            this.props.savesGridContainer.current.classList.add('growSavesGridContainer');
             break;
 
         case 'only-comments':
             this.props.displayOnlyComments(true);
+            this.props.savesGridContainer.current.classList.remove('growSavesGridContainer');
             break;
 
         default:
             return false;
       }
     }
+
+  // setGrow = (savesGridContainer) => {
+  //   this.props.savesGridContainer.current.classList.add('growSavesGridContainer');
+  // }
 
   render() {
       return (
@@ -47,7 +54,7 @@ class RenderHeader extends React.Component {
                 placeholder="Search or filter by subreddit"
                 onChange={ (e) => this.props.storeSearchQuery(e.target.value) }
                 />
-                <span class="fa fa-search"></span>
+                <span className="fa fa-search"></span>
             </form>
 
           </div>

@@ -5,6 +5,8 @@ import LoadingScreen from './LoadingScreen'
 import RenderHeader from './RenderHeader'
 
 class DisplaySaves extends React.Component {
+  savesGridContainer = React.createRef();
+
   handleSearch = (arrayType) => {
     const thread = 't3'
     const comment = 't1'
@@ -16,20 +18,30 @@ class DisplaySaves extends React.Component {
         const searchIncludesSubreddit = save.subreddit.toLowerCase().includes(userSearch.toLowerCase())
 
         if ( searchIncludesTitle || searchIncludesComment || searchIncludesSubreddit ) {
+          
+          if (this.props.onlyThreads === true) {
+            return (
+              <div className="save-wrapper-threadsOnly" key={save.key}>
+                <div className="index"> {i+1}. </div>
+                {save.displaySubreddit_t}
+                {save.displayTitle_ThreadOnly}
+              </div>
+            )
+          }
 
           if (save.type === thread) {
             return (
-              <div key={save.key}>
+              <div className="save-wrapper" key={save.key}>
                 <div className="index"> {i+1}. </div>
                 {save.displaySubreddit_t}
-                {save.displayTitleOnly}
+                {save.displayTitle}
               </div>
             )
           }
 
           if (save.type === comment) {
             return (
-              <div key={save.key}>
+              <div className="save-wrapper" key={save.key}>
                 <div className="index"> {i+1}. </div>
                 {save.displaySubreddit_c}
                 {save.displayComment}
@@ -61,10 +73,10 @@ class DisplaySaves extends React.Component {
       // Else show all threads unfiltered
       return threadsArray.map((save, i) => {
         return (
-          <div key={save.key}>
+          <div className="save-wrapper-threadsOnly" key={save.key}>
             <div className="index"> {i+1}. </div>
             {save.displaySubreddit_t}
-            {save.displayTitleOnly}
+            {save.displayTitle_ThreadOnly}
           </div>
         )
       })
@@ -82,7 +94,7 @@ class DisplaySaves extends React.Component {
       // Else show all comments unfiltered
       return commentsArray.map((save, i) => {
         return (
-          <div key={save.key}>
+          <div className="save-wrapper" key={save.key}>
             <div className="index"> {i+1}. </div>
             {save.displaySubreddit_c}
             {save.displayComment}
@@ -102,7 +114,7 @@ class DisplaySaves extends React.Component {
     return threadsAndCommentsArray.map((save, i) => {
       if (save.type === thread) {
         return (
-          <div key={save.key}>
+          <div className="save-wrapper" key={save.key}>
             <div className="index"> {i+1}. </div>
             {save.displaySubreddit_t}
             {save.displayTitle}
@@ -111,7 +123,7 @@ class DisplaySaves extends React.Component {
       }
       if (save.type === comment) {
         return (
-          <div key={save.key}>
+          <div className="save-wrapper" key={save.key}>
             <div className="index"> {i+1}. </div>
             {save.displaySubreddit_c}
             {save.displayComment}
@@ -133,14 +145,14 @@ class DisplaySaves extends React.Component {
     }
     return (
       <div>
-      <OrganizeSaves />
-      <RenderHeader />
-      <div className="saves-grid-container">
-        <div className="saves-grid">
-          {this.renderSaves()}
+        <OrganizeSaves />
+        <RenderHeader savesGridContainer={this.savesGridContainer}/>
+        <div className="saves-grid-container" ref={this.savesGridContainer}>
+          <div className="saves-grid">
+            {this.renderSaves()}
+          </div>
         </div>
       </div>
-            </div>
     )
   }
 }
