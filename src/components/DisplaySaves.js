@@ -82,7 +82,6 @@ class DisplaySaves extends React.Component {
       })
     }
 
-
     // 2. Check if the comments button was pushed
     if (this.props.onlyComments === true) {
 

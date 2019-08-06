@@ -83,7 +83,7 @@ html, body {
   padding-right: 3%;
   border-radius: 2px;
   display: grid;
-  grid-template-columns: auto;
+  grid-template-columns: 1fr;
   background-color: white;
   border: 1px solid #DBDBDB;
   border-top: 3px solid pink;
@@ -93,7 +93,6 @@ html, body {
   width: 1000px;
   padding-left: 1%;
   padding-right: 1%;
-  grid-template-columns: 1% 98% 1%;
 }
 
 .comments-grid-container {
@@ -111,12 +110,12 @@ html, body {
   border-spacing: 5px;
 }
 
-.saves-grid {
-  grid-column-start: 2;
-}
-
 a {
   text-decoration: none;
+}
+
+p a {
+  color: blue;
 }
 
 .threadOnly {
@@ -128,6 +127,8 @@ a {
 .save-wrapper-threadsOnly {
   padding-bottom: 3px;
   border-top: 1px dotted #e1e1e1;
+  grid-column-start: 2;
+
 }
 
 pre {
