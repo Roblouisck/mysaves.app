@@ -138,7 +138,7 @@ class DisplaySaves extends React.Component {
     if (this.props.allSaves.length < 1) {
       return (
         <div>
-          <p>Fetching your reddit saves...</p>
+          <LoadingScreen />
           <OrganizeSaves />
         </div>
       )

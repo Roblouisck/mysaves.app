@@ -1,28 +1,33 @@
-html, body {
+body {
   margin: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-y: scroll;
+  background-image: url("assets/background.png");
 }
 
-.threadOnly, .subreddit_c, .subreddit_t, .index, .comment {
-  display: inline;
-  font-family: Verdana, Arial, Helvetica, sans-serif;
-  color: #1A1A1B;
-  font-size: 14px ;
+a {
+  text-decoration: none;
+  color: blue;
 }
 
-.thread {
-  display: inline;
-  color: #1A1A1B;
-  font-family: 'IBM Plex Sans', sans-serif;
-  font-size: 16px;
-  font-weight: 500;
+pre {
+  white-space: pre-wrap
 }
 
-
-.subreddit_c, .subreddit_t, .index {
-  font-weight: bold;
+.grid-header-container {
+  margin-top: 15px;
+  display: grid;
+  grid-template-columns: 1% 98% 1%;
+  justify-items: center;
+  background-size: 100px 100px;
 }
+
+.grid-header {
+  grid-column-start: 2;
+  margin-bottom: 10px;
+}
+
 
 .btn-group button {
   background-color: #FFFFFF; 
@@ -58,7 +63,7 @@ html, body {
   border: 1px solid #919191;
   border-radius: 3px;
   text-indent: 40px;
-  font-family: 'IBM Plex Sans', sans-serif;
+  font-family: 'IBM Plex Sans', sans-serif, Verdana, Arial, Helvetica, sans-serif;
   font-weight: 400;
   background: #fcfcfc;
   font-size: 16px;
@@ -68,10 +73,44 @@ html, body {
   -webkit-appearance: none;
 }
 
-.fa {
+
+.fa { /* font awesome */
   position: relative;
   right: 330px;
   color: #919191;
+}
+
+.threadOnly, .subreddit_c, .subreddit_t, .index, .comment {
+  display: inline;
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+  color: #1A1A1B;
+  font-size: 14px ;
+}
+
+.thread {
+  display: inline;
+  color: #1A1A1B;
+  font-family: 'IBM Plex Sans', sans-serif, Verdana, Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.save-wrapper-threadsOnly {
+  padding-bottom: 3px;
+  border-top: 1px dotted #e1e1e1;
+  grid-column-start: 2;
+  line-height: 1.1;
+}
+
+.threadOnly {
+  font-size: 14px;
+  padding-bottom: 15px;
+  margin-bottom: 15px;
+}
+
+
+.subreddit_c, .subreddit_t, .index {
+  font-weight: bold;
 }
 
 .saves-grid-container {
@@ -108,46 +147,4 @@ html, body {
   border-left: 1px solid #DBDBDB;
   border-top: 1px solid #e1e1e1;
   border-spacing: 5px;
-}
-
-a {
-  text-decoration: none;
-}
-
-p a {
-  color: blue;
-}
-
-.threadOnly {
-  font-size: 14px;
-  padding-bottom: 15px;
-  margin-bottom: 15px;
-}
-
-.save-wrapper-threadsOnly {
-  padding-bottom: 3px;
-  border-top: 1px dotted #e1e1e1;
-  grid-column-start: 2;
-  line-height: 1.1;
-}
-
-pre {
-  white-space:pre-wrap
-}
-
-body {
-  background-image: url("assets/background.png");
-}
-
-.grid-header-container {
-  margin-top: 15px;
-  display: grid;
-  grid-template-columns: 1% 98% 1%;
-  justify-items: center;
-  background-size: 100px 100px;
-}
-
-.grid-header {
-  grid-column-start: 2;
-  margin-bottom: 10px;
 }
