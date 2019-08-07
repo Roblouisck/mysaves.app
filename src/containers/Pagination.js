@@ -8,15 +8,9 @@ import {
   appendUserSaves,
   setPagination
 } from '../actions/index.js'
+import DisplaySaves from '../components/DisplaySaves'
 
-class Initialization extends React.Component {
-  componentDidMount (props) {
-    const params = new URLSearchParams(this.props.location.hash);
-    const token = params.get('#access_token')
-    this.props.storeUserToken(token)
-    this.props.fetchInitialUserData(token)
-  }
-
+class Pagination extends React.Component {
   componentDidUpdate () {
     if (this.props.runAutoPagination === true && this.props.username !== null) {
       this.runAutoPagination()
@@ -56,4 +50,4 @@ export default connect(mapStateToProps, {
   storeUserToken, 
   storeUserSavesTemporarily, 
   appendUserSaves,
-  setPagination })(Initialization);
+  setPagination })(Pagination);

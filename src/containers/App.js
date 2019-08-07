@@ -1,16 +1,16 @@
 import React from 'react';
-import AuthorizeReddit from './AuthorizeReddit'
-import Initialization from './Initialization';
+import Pagination from './Pagination';
 import { Route, BrowserRouter } from 'react-router-dom';
 import DisplaySaves from '../components/DisplaySaves';
+import SignIn from '../containers/SignIn';
 
 const App = () => {
   return ( 
     <div>
       <BrowserRouter>
-        <Route path="/" exact component={AuthorizeReddit} />
-        <Route path="/authorize_callback" exact component={Initialization} /> 
-        <Route path="/authorize_callback" exact component={DisplaySaves} /> 
+        <Route path="/authorize_callback" exact component={SignIn} /> 
+        <Route path="/" exact component={Pagination} /> 
+        <Route path="/" exact component={DisplaySaves} /> 
       </BrowserRouter>
     </div>
   )

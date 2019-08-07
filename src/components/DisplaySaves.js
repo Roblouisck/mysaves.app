@@ -3,10 +3,17 @@ import { connect } from 'react-redux';
 import OrganizeSaves from '../containers/OrganizeSaves'
 import LoadingScreen from './LoadingScreen'
 import RenderHeader from './RenderHeader'
+import { CLIENT_ID } from '../keys';
 
 class DisplaySaves extends React.Component {
-  savesGridContainer = React.createRef();
+  componentDidMount = () => {
+    if (this.props.token === null) {
+      window.location.replace(`https://www.reddit.com/api/v1/authorize?client_id=${CLIENT_ID}&response_type=token&state=123abc&redirect_uri=http://localhost:3000/authorize_callback&duration=temporary&scope=history identity`);
+    }
+    return null
+  }
 
+  savesGridContainer = React.createRef();
   handleSearch = (arrayType) => {
     const thread = 't3'
     const comment = 't1'
@@ -134,15 +141,6 @@ class DisplaySaves extends React.Component {
   }
 
   render () {
-    // OrganizeSaves is running a componentDidUpdate, so needs to continue updating allSaves after initial fetching.
-    if (this.props.allSaves.length < 1) {
-      return (
-        <div>
-          <LoadingScreen />
-          <OrganizeSaves />
-        </div>
-      )
-    }
     return (
       <div>
         <OrganizeSaves />
@@ -160,6 +158,7 @@ class DisplaySaves extends React.Component {
 const mapStateToProps = state => {
   console.log(state)
   return { 
+    token: state.userData.token,
     totalUserSaves: state.userData.totalUserSaves,
     username: state.userData.username,
     onlyThreads: state.buttons.displayOnlyThreads,
