@@ -38,7 +38,7 @@ pre {
   cursor: pointer; 
   float: left; 
   margin-left: 3px;
-  /*-webkit-animation: image_blur_one 1s; */
+  -webkit-animation: image_blur_buttons 2s; 
 }
 
 .btn-group button:hover {
@@ -68,7 +68,7 @@ pre {
   font-weight: 400;
   background: #fcfcfc;
   font-size: 16px;
-  -webkit-animation: image_blur_one 2s; 
+  -webkit-animation: image_blur_searchbar 2s; 
 }
 
 .searchBox::-webkit-search-cancel-button {
@@ -80,6 +80,7 @@ pre {
   position: relative;
   right: 330px;
   color: #919191;
+  -webkit-animation: image_blur_searchbar 3s; 
 }
 
 .threadOnly, .subreddit_c, .subreddit_t, .index, .comment {
@@ -128,7 +129,7 @@ pre {
   background-color: white;
   border: 1px solid #DBDBDB;
   border-top: 3px solid pink;
-  /*-webkit-animation: image_blur_one 1s; */
+  -webkit-animation: image_blur_saves 4.5s; 
 }
 
 .growSavesGridContainer {
@@ -152,29 +153,20 @@ pre {
   border-spacing: 5px;
 }
 
-/*.loading-saves-grid-container {
-  padding: 25px 0;
-  width: 700px;
-  min-height: 1200px;
-  margin-left: auto;
-  margin-right: auto;
-  padding-left: 2%;
-  padding-right: 3%;
-  border-radius: 2px;
-  display: grid;
-  grid-auto-rows: minmax(100px, 100px);
-  grid-gap: 10px;
-  background-color: white;
-  border: 1px solid #DBDBDB;
-  border-top: 3px solid pink;
-  -webkit-animation: image_blur_one 1s; 
+@-webkit-keyframes image_blur_buttons {
+    0% { -webkit-filter: opacity(0%);}
+    15% { -webkit-filter: opacity(0%);}
+    100% { -webkit-filter: opacity(100%);}
 }
 
+@-webkit-keyframes image_blur_searchbar {
+    0% { -webkit-filter: opacity(0%);}
+    40% { -webkit-filter: opacity(0%);}
+    100% { -webkit-filter: opacity(100%);}
+}
 
-.loadingDummyText {
-  text-align: left;
-  font-family: 'IBM Plex Sans', sans-serif, Verdana, Arial, Helvetica, sans-serif;
-  color: blue;
-  font-size: 15px;
-  font-weight: 500;
-}*/
+@-webkit-keyframes image_blur_saves {
+    0% { -webkit-filter: opacity(0%);}
+    40% { -webkit-filter: opacity(0%);}
+    100% { -webkit-filter: opacity(100%);}
+}

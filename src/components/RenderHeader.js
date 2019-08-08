@@ -8,33 +8,35 @@ import {
 } from '../actions/index.js'
 
 class RenderHeader extends React.Component {
+  foo = () => {
+    console.log('okay')
+  }
+
   handleButtons = event => {
+  const { savesGridCont } = this.props
+  const savesGridContainer = savesGridCont.current.classList
     const buttonID = event.target.id;
     switch (buttonID) {
 
         case 'all-saves':
             this.props.displayThreadsAndComments(true);
-            this.props.savesGridContainer.current.classList.remove('growSavesGridContainer');
+            savesGridContainer.remove('growSavesGridContainer');
             break;
 
         case 'only-threads':
             this.props.displayOnlyThreads(true);
-            this.props.savesGridContainer.current.classList.add('growSavesGridContainer');
+            savesGridContainer.add('growSavesGridContainer');
             break;
 
         case 'only-comments':
             this.props.displayOnlyComments(true);
-            this.props.savesGridContainer.current.classList.remove('growSavesGridContainer');
+            savesGridContainer.remove('growSavesGridContainer');
             break;
 
         default:
             return false;
       }
     }
-
-  // setGrow = (savesGridContainer) => {
-  //   this.props.savesGridContainer.current.classList.add('growSavesGridContainer');
-  // }
 
   render() {
       return (

@@ -14,6 +14,8 @@ class DisplaySaves extends React.Component {
   }
 
   savesGridContainer = React.createRef();
+  ss = React.createRef();
+
   handleSearch = (arrayType) => {
     const thread = 't3'
     const comment = 't1'
@@ -144,7 +146,7 @@ class DisplaySaves extends React.Component {
     return (
       <div>
         <OrganizeSaves />
-        <RenderHeader savesGridContainer={this.savesGridContainer}/>
+        <RenderHeader savesGridCont={this.savesGridContainer}/>
         <div className="saves-grid-container" ref={this.savesGridContainer}>
           <div className="saves-grid">
             {this.renderSaves()}
