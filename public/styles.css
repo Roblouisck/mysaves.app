@@ -103,6 +103,7 @@ pre {
   border-top: 1px dotted #e1e1e1;
   grid-column-start: 2;
   line-height: 1.1;
+  word-break: break-all;
 }
 
 .threadOnly {
@@ -143,6 +144,7 @@ pre {
   margin-bottom: 29px;
   display: grid;
   grid-template-columns: 3% 98% 1%;
+  word-break: break-all;
 }
 
 .comments-grid {
