@@ -60,7 +60,7 @@ pre {
 }
 
 #all-saves, #only-threads, #only-comments {
-  font-family: 'IBM Plex Sans', sans-serif;
+  font-family: 'IBM Plex Sans', sans-serif, Verdana, Arial, Helvetica, sans-serif;
   font-size: 15px;
 }
 
@@ -95,13 +95,19 @@ pre {
 .threadOnly, .subreddit_c, .subreddit_t, .index, .comment {
   display: inline;
   font-family: Verdana, Arial, Helvetica, sans-serif;
-  color: #1A1A1B;
+  color: #222222;
   font-size: 14px ;
+}
+
+@media screen and (max-width: 760px) {
+  .comment, .index {
+    font-size: 15px;
+  }
 }
 
 .thread {
   display: inline;
-  color: #1A1A1B;
+  color: #222222;
   font-family: 'IBM Plex Sans', sans-serif, Verdana, Arial, Helvetica, sans-serif;
   font-size: 16px;
   font-weight: 500;
@@ -115,29 +121,31 @@ pre {
   word-break: break-word;
 }
 
-.threadOnly {
-  font-size: 14px;
-  padding-bottom: 15px;
-  margin-bottom: 15px;
+@media screen and (max-width: 760px) {
+  a.titleOnly {
+    display: block;
+    margin-left: 3%;
+    margin-bottom: 29px;
+    margin-top: 4px;
+    line-height: 1.1;
+    border-left: 1px solid #DBDBDB;
+    border-top: 1px solid #e1e1e1;
+    border-spacing: 5px;
+    padding: 5px;
+    font-family: 'IBM Plex Sans', sans-serif, Verdana, Arial, Helvetica, sans-serif;
+    font-size: 16px;
+  }
+  
+  .save-wrapper-threadsOnly {
+    border-top: none;
+    padding-left: 2%;
+    padding-right: 2%;
+  }
 }
-
 
 .subreddit_c, .subreddit_t, .index {
   font-weight: bold;
 }
-
-/*.saves-grid-container {
-  padding: 25px 0;
-  padding-left: 2%;
-  padding-right: 3%;
-  border-radius: 2px;
-  display: grid;
-  grid-template-columns: 1fr;
-  background-color: white;
-  border: 1px solid #DBDBDB;
-  border-top: 3px solid pink;
-  -webkit-animation: image_blur_saves 4.5s; 
-}*/
 
 .saves-grid-container {
   padding: 25px 0;
@@ -155,26 +163,29 @@ pre {
   -webkit-animation: image_blur_saves 4.5s; 
 }
 
+.growSavesGridContainer {
+  width: 95%;
+  padding-left: 1%;
+  padding-right: 1%;
+}
+
 @media screen and (max-width: 760px) {
   .saves-grid-container {
     margin-left: 0;
     margin-right: 0;
     width: 100%;
   }
-}
 
-@media screen and (max-width: 760px) {
-  .save-wrapper {
-    margin-left: 0%;
-    margin-right: 5%;
+  .save-wrapper, .save-wrapper-threadsOnly {
+    margin-left: 2%;
+    margin-right: 7%;
   }
-}
 
-
-.growSavesGridContainer {
-  width: 95%;
-  padding-left: 1%;
-  padding-right: 1%;
+  .growSavesGridContainer {
+    width: 100%;
+    padding-left: 0%;
+    padding-right: 0%;
+  }
 }
 
 .comments-grid-container, .title-grid-container {
