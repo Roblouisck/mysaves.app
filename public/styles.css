@@ -1,3 +1,12 @@
+html {
+    overflow: scroll;
+    overflow-x: hidden;
+}
+::-webkit-scrollbar {
+    width: 0px;  /* Remove scrollbar space */
+    background: transparent;  /* Optional: just make scrollbar invisible */
+}
+
 body {
   margin: 0;
   -webkit-font-smoothing: antialiased;
@@ -117,6 +126,19 @@ pre {
   font-weight: bold;
 }
 
+/*.saves-grid-container {
+  padding: 25px 0;
+  padding-left: 2%;
+  padding-right: 3%;
+  border-radius: 2px;
+  display: grid;
+  grid-template-columns: 1fr;
+  background-color: white;
+  border: 1px solid #DBDBDB;
+  border-top: 3px solid pink;
+  -webkit-animation: image_blur_saves 4.5s; 
+}*/
+
 .saves-grid-container {
   padding: 25px 0;
   width: 700px;
@@ -132,6 +154,22 @@ pre {
   border-top: 3px solid pink;
   -webkit-animation: image_blur_saves 4.5s; 
 }
+
+@media screen and (max-width: 760px) {
+  .saves-grid-container {
+    margin-left: 0;
+    margin-right: 0;
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 760px) {
+  .save-wrapper {
+    margin-left: 0%;
+    margin-right: 5%;
+  }
+}
+
 
 .growSavesGridContainer {
   width: 95%;
@@ -154,6 +192,7 @@ pre {
   border-top: 1px solid #e1e1e1;
   border-spacing: 5px;
 }
+
 
 @-webkit-keyframes image_blur_buttons {
     0% { -webkit-filter: opacity(0%);}
