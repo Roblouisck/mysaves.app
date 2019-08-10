@@ -4,10 +4,15 @@ import { storeSaveValuesWithHTML, storeSaveValuesChronologically } from '../acti
 
 class OrganizeSaves extends React.Component {
   decodeHtml(html) {
-    var txt = document.createElement("textarea");
-    txt.innerHTML = html;
-    return txt.value.replace(`&#x200B;`, '');
-}
+    return (
+      html
+      .replace(/&lt;/g, '<')
+      .replace(/&gt;/g, '>')
+      .replace(/#/g, '')
+      .replace(/&amp;/g, '')
+      .replace(/x200B;/g, '')
+      )
+  }
 
   componentDidUpdate() {
     const importantValues = this.props.totalUserSaves.map((save) => {
@@ -41,8 +46,8 @@ class OrganizeSaves extends React.Component {
           </div>, 
 
         displayTitle: 
-          <div className="comments-grid-container">
-            <div className="comments-grid">
+          <div className="title-grid-container">
+            <div className="title-grid">
               <p className="thread"> 
                 <a href={save.link} target="_blank" rel="noopener noreferrer"> {save.title} </a> 
               </p>

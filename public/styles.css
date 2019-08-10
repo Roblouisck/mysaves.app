@@ -103,7 +103,7 @@ pre {
   border-top: 1px dotted #e1e1e1;
   grid-column-start: 2;
   line-height: 1.1;
-  word-break: break-all;
+  word-break: break-word;
 }
 
 .threadOnly {
@@ -139,15 +139,15 @@ pre {
   padding-right: 1%;
 }
 
-.comments-grid-container {
+.comments-grid-container, .title-grid-container {
   margin-top: 4px;
   margin-bottom: 29px;
   display: grid;
   grid-template-columns: 3% 98% 1%;
-  word-break: break-all;
+  word-break: break-word;
 }
 
-.comments-grid {
+.comments-grid, .title-grid {
   grid-column-start: 2;
   padding: 5px;
   border-left: 1px solid #DBDBDB;
