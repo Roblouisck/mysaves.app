@@ -8,35 +8,33 @@ import {
 } from '../actions/index.js'
 
 class RenderHeader extends React.Component {
-  foo = () => {
-    console.log('okay')
-  }
-
   handleButtons = event => {
-  const { savesGridCont } = this.props
-  const savesGridContainer = savesGridCont.current.classList
-    const buttonID = event.target.id;
-    switch (buttonID) {
 
-        case 'all-saves':
-            this.props.displayThreadsAndComments(true);
-            savesGridContainer.remove('growSavesGridContainer');
-            break;
+    const { savesGridCont } = this.props
+    const savesGridContainer = savesGridCont.current.classList
 
-        case 'only-threads':
-            this.props.displayOnlyThreads(true);
-            savesGridContainer.add('growSavesGridContainer');
-            break;
+      const buttonID = event.target.id;
+      switch (buttonID) {
 
-        case 'only-comments':
-            this.props.displayOnlyComments(true);
-            savesGridContainer.remove('growSavesGridContainer');
-            break;
+          case 'all-saves':
+              this.props.displayThreadsAndComments(true);
+              savesGridContainer.remove('growSavesGridContainer');
+              break;
 
-        default:
-            return false;
+          case 'only-threads':
+              this.props.displayOnlyThreads(true);
+              savesGridContainer.add('growSavesGridContainer');
+              break;
+
+          case 'only-comments':
+              this.props.displayOnlyComments(true);
+              savesGridContainer.remove('growSavesGridContainer');
+              break;
+
+          default:
+              return false;
+        }
       }
-    }
 
   render() {
       return (
@@ -58,7 +56,6 @@ class RenderHeader extends React.Component {
                 />
                 <span className="fa fa-search"></span>
             </form>
-
           </div>
         </div>
       );

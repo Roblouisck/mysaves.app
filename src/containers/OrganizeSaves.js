@@ -147,10 +147,8 @@ class OrganizeSaves extends React.Component {
       }
     })
 
-
     this.props.storeSaveValuesWithHTML(valuesMappedToHTMLSorted)
   }
-
 
   render () {
     return null

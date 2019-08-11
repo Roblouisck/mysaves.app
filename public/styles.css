@@ -28,7 +28,6 @@ pre {
   margin-bottom: 10px;
 }
 
-
 .btn-group button {
   background-color: #FFFFFF; 
   border: 1px solid #919191; 
@@ -74,7 +73,6 @@ pre {
 .searchBox::-webkit-search-cancel-button {
   -webkit-appearance: none;
 }
-
 
 .fa { /* font awesome */
   position: relative;
@@ -194,7 +192,6 @@ pre {
   border-top: 1px solid #e1e1e1;
   border-spacing: 5px;
 }
-
 
 @-webkit-keyframes image_blur_buttons {
     0% { -webkit-filter: opacity(0%);}

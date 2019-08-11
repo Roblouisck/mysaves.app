@@ -4,15 +4,14 @@ import OrganizeSaves from '../containers/OrganizeSaves'
 import RenderHeader from './RenderHeader'
 
 class DisplaySaves extends React.Component {
+  savesGridContainer = React.createRef();
+  
   componentDidMount = () => {
     if (this.props.token === null) {
       window.location.replace(`https://www.reddit.com/api/v1/authorize?client_id=${process.env.REACT_APP_CLIENT_ID}&response_type=token&state=123abc&redirect_uri=${process.env.REACT_APP_URI}&duration=temporary&scope=history identity`);
     }
     return null
   }
-
-  savesGridContainer = React.createRef();
-  ss = React.createRef();
 
   handleSearch = (arrayType) => {
     const thread = 't3'
