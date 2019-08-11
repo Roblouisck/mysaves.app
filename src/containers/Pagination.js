@@ -8,7 +8,6 @@ import {
   appendUserSaves,
   setPagination
 } from '../actions/index.js'
-import DisplaySaves from '../components/DisplaySaves'
 
 class Pagination extends React.Component {
   componentDidUpdate () {

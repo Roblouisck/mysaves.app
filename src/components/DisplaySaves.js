@@ -1,7 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import OrganizeSaves from '../containers/OrganizeSaves'
-import LoadingScreen from './LoadingScreen'
 import RenderHeader from './RenderHeader'
 
 class DisplaySaves extends React.Component {
