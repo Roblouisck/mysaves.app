@@ -16,8 +16,7 @@ pre {
 }
 
 .grid-header-container {
-  margin-top: 15px;
-  margin-left: 12px;
+  margin: 15px 0px 3px 12px;
   display: grid;
   grid-template-columns: 1% 98% 1%;
   justify-items: center;
@@ -60,8 +59,7 @@ pre {
 .searchBox {
   width: 345px;
   height: 35px;
-  margin-top: 5px;
-  margin-left: 3px;
+  margin: 5px 0px 0px 3px;
   border: 1px solid #919191;
   border-bottom: 2px solid #00000057;
   border-radius: 3px;
@@ -91,12 +89,6 @@ pre {
   font-size: 14px ;
 }
 
-@media screen and (max-width: 760px) {
-  .comment, .index {
-    font-size: 15px;
-  }
-}
-
 .thread {
   display: inline;
   color: #222222;
@@ -114,27 +106,6 @@ pre {
   margin-left: -4%;
 }
 
-@media screen and (max-width: 760px) {
-  a.titleOnly {
-    display: block;
-    margin-left: 3%;
-    margin-bottom: 29px;
-    margin-top: 4px;
-    line-height: 1.1;
-    border-left: 1px solid #DBDBDB;
-    border-top: 1px solid #e1e1e1;
-    border-spacing: 5px;
-    padding: 5px;
-    font-family: 'IBM Plex Sans', sans-serif, Verdana, Arial, Helvetica, sans-serif;
-    font-size: 16px;
-  }
-  
-  .save-wrapper-threadsOnly {
-    border-top: none;
-    margin-left: 0%;
-  }
-}
-
 .subreddit_c, .subreddit_t, .index {
   font-weight: bold;
 }
@@ -142,8 +113,7 @@ pre {
 .saves-grid-container {
   padding: 25px 0;
   width: 700px;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 0 auto 0 auto;
   border-radius: 2px;
   display: grid;
   grid-template-columns: 1fr;
@@ -161,28 +131,11 @@ pre {
 }
 
 .saves-grid {
-  padding-left: 4%;
-  padding-right: 7%;
-}
-
-@media screen and (max-width: 760px) {
-  .saves-grid-container {
-    border: none;
-    margin-left: 0;
-    margin-right: 0;
-    width: 100%;
-  }
-
-  .growSavesGridContainer {
-    width: 100%;
-    padding-left: 0%;
-    padding-right: 0%;
-  }
+  padding: 0 7% 0 4%;
 }
 
 .comments-grid-container, .title-grid-container {
-  margin-top: 4px;
-  margin-bottom: 29px;
+  margin: 4px 0 29px 0;
   display: grid;
   grid-template-columns: 3% 98% 1%;
   word-break: break-word;
@@ -194,6 +147,46 @@ pre {
   border-left: 1px solid #DBDBDB;
   border-top: 1px solid #e1e1e1;
   border-spacing: 5px;
+}
+
+@media screen and (max-width: 760px) {
+  .comment, .index {
+    font-size: 15px;
+  }
+
+  .searchBox, .btn-group button {
+  border-bottom: 1px solid #919191;
+  }
+
+  .saves-grid-container {
+    border-top: 3px solid pink;
+    margin-left: 0;
+    margin-right: 0;
+    width: 100%;
+  }
+
+  .growSavesGridContainer {
+    width: 100%;
+    padding-left: 0%;
+    padding-right: 0%;
+  }
+
+  a.titleOnly {
+    display: block;
+    margin: 4px 0 29px 3%;
+    line-height: 1.1;
+    border-left: 1px solid #DBDBDB;
+    border-top: 1px solid #e1e1e1;
+    border-spacing: 5px;
+    padding: 5px;
+    font-family: 'IBM Plex Sans', sans-serif, Verdana, Arial, Helvetica, sans-serif;
+    font-size: 16px;
+  }
+  
+  .save-wrapper-threadsOnly {
+    border-top: none;
+    margin-left: 0%;
+  }
 }
 
 @-webkit-keyframes image_blur_buttons {
