@@ -108,6 +108,7 @@ pre {
   grid-column-start: 2;
   line-height: 1.1;
   word-break: break-word;
+  margin-left: -5%;
 }
 
 @media screen and (max-width: 760px) {
@@ -127,6 +128,7 @@ pre {
   
   .save-wrapper-threadsOnly {
     border-top: none;
+    margin-left: 0%;
   }
 }
 
