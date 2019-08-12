@@ -17,6 +17,7 @@ pre {
 
 .grid-header-container {
   margin-top: 15px;
+  margin-left: 12px;
   display: grid;
   grid-template-columns: 1% 98% 1%;
   justify-items: center;
@@ -29,8 +30,9 @@ pre {
 }
 
 .btn-group button {
-  background-color: #FFFFFF; 
+  background-color: #f7f7f7; 
   border: 1px solid #919191; 
+  border-bottom: 2px solid #00000057;
   border-radius: 2px;
   color: black; 
   padding: 10px 24px; 
@@ -42,6 +44,7 @@ pre {
 
 .btn-group button:hover {
   background-color: #209CEE;
+  border-bottom: 1px solid #919191;
   color: white;
 }
 
@@ -59,13 +62,13 @@ pre {
   height: 35px;
   margin-top: 5px;
   margin-left: 3px;
-  background-color: white;
   border: 1px solid #919191;
+  border-bottom: 2px solid #00000057;
   border-radius: 3px;
   text-indent: 40px;
   font-family: 'IBM Plex Sans', sans-serif, Verdana, Arial, Helvetica, sans-serif;
   font-weight: 400;
-  background: #fcfcfc;
+  background: #f7f7f7;
   font-size: 16px;
   -webkit-animation: image_blur_searchbar 2s; 
 }
@@ -108,7 +111,7 @@ pre {
   grid-column-start: 2;
   line-height: 1.1;
   word-break: break-word;
-  margin-left: -5%;
+  margin-left: -4%;
 }
 
 @media screen and (max-width: 760px) {
@@ -144,10 +147,11 @@ pre {
   border-radius: 2px;
   display: grid;
   grid-template-columns: 1fr;
-  background-color: white;
+  background-color: #fbfbfb;
   border: 1px solid #DBDBDB;
   border-top: 3px solid pink;
   -webkit-animation: image_blur_saves 4.5s; 
+  box-shadow: 0px 4px 16px 3px rgba(179, 207, 235, 0.3)
 }
 
 .growSavesGridContainer {
@@ -157,8 +161,8 @@ pre {
 }
 
 .saves-grid {
-  padding-left: 5%;
-  padding-right: 5%;
+  padding-left: 4%;
+  padding-right: 7%;
 }
 
 @media screen and (max-width: 760px) {
