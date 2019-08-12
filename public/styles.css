@@ -127,8 +127,6 @@ pre {
   
   .save-wrapper-threadsOnly {
     border-top: none;
-    padding-left: 2%;
-    padding-right: 2%;
   }
 }
 
@@ -141,8 +139,6 @@ pre {
   width: 700px;
   margin-left: auto;
   margin-right: auto;
-  padding-left: 2%;
-  padding-right: 3%;
   border-radius: 2px;
   display: grid;
   grid-template-columns: 1fr;
@@ -158,16 +154,17 @@ pre {
   padding-right: 1%;
 }
 
+.saves-grid {
+  padding-left: 5%;
+  padding-right: 5%;
+}
+
 @media screen and (max-width: 760px) {
   .saves-grid-container {
+    border: none;
     margin-left: 0;
     margin-right: 0;
     width: 100%;
-  }
-
-  .save-wrapper, .save-wrapper-threadsOnly {
-    margin-left: 2%;
-    margin-right: 7%;
   }
 
   .growSavesGridContainer {
