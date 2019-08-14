@@ -4,8 +4,8 @@ import { connect } from 'react-redux';
 import { 
   fetchInitialUserData,
   storeUserToken, 
-  storeUserSavesTemporarily, 
-  appendUserSaves,
+  updateCurrentPageSaves, 
+  storeUserSaves,
   setPagination
 } from '../actions/index.js'
 
@@ -17,16 +17,17 @@ class Pagination extends React.Component {
     }
   }
 
-  // I keep track of the number of user saves on a page with userSaves. I get the next page of saves, dispatch an action to store that page, which is fed back to the while loop; and append that next page to an array holding all saves.
+  // fetchInitialUserData in SignIn.js sets initial condition to true
   async runAutoPagination () {
-    while (this.props.userSaves.length > 0) {
-      const lastPage = this.props.userSaves[this.props.userSaves.length-1].data.name
-      const userSavesObject = await axios.get (`https://oauth.reddit.com/user/${this.props.username}/saved/.json?limit=100&after=${lastPage}`, {
+    while (this.props.currentPageSaves.length > 0) {
+      const currentPage = this.props.currentPageSaves[this.props.currentPageSaves.length-1].data.name
+      var nextPage = await axios.get (`https://oauth.reddit.com/user/${this.props.username}/saved/.json?limit=100&after=${currentPage}`, {
       headers: { 'Authorization': `bearer ${this.props.token}` }
     })
-      const currentPageSaves = userSavesObject.data.data.children
-      this.props.storeUserSavesTemporarily(currentPageSaves)
-      this.props.appendUserSaves(currentPageSaves)
+      var nextPage = nextPage.data.data.children
+      const withNextPage = nextPage
+      this.props.updateCurrentPageSaves(withNextPage)
+      this.props.storeUserSaves(withNextPage)
     }
   }
 
@@ -38,7 +39,7 @@ class Pagination extends React.Component {
 const mapStateToProps = state => {
   return { 
     username: state.userData.username,
-    userSaves: state.userData.temporaryUserSaves,
+    currentPageSaves: state.userData.currentPageOfSaves,
     runAutoPagination: state.pagination.runAutoPagination,
     token: state.userData.token
    }
@@ -47,6 +48,6 @@ const mapStateToProps = state => {
 export default connect(mapStateToProps, { 
   fetchInitialUserData,
   storeUserToken, 
-  storeUserSavesTemporarily, 
-  appendUserSaves,
+  updateCurrentPageSaves, 
+  storeUserSaves,
   setPagination })(Pagination);
