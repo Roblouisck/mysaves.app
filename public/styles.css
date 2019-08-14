@@ -43,7 +43,7 @@ pre {
 
 .btn-group button:hover {
   background-color: #209CEE;
-  border-bottom: 1px solid #919191;
+  border-bottom: 2px solid #919191;
   color: white;
 }
 
@@ -168,6 +168,10 @@ pre {
   border-bottom: 1px solid #919191;
   }
 
+  .btn-group button:hover {
+    border-bottom: 1px solid #919191;
+  }
+
   .saves-grid-container {
     border: none;
     border-top: 3px solid pink;
@@ -206,6 +210,7 @@ pre {
   .no-results {
     display: grid;
     justify-items: center;
+    font-size: 15px;
   }
 }
 
