@@ -88,10 +88,13 @@ class FilterSaves extends React.Component {
   }
 
   render () {
-    const savesHaveLoaded = this.filterSaves() !== []
     const searchHasNoMatches = this.filterSaves().every( save => save === null )
+    
+    if (this.props.allSavesChronological.length === 0) {
+      return <div className='fetching-text'>Fetching your saves...</div>
+    } 
 
-    if (savesHaveLoaded && searchHasNoMatches) {
+    if (this.props.userSearch !== 'placehold3r' && searchHasNoMatches) {
       return <div className="no-results">No results, try again.</div>
     }
     return this.displaySaves()

@@ -82,7 +82,7 @@ pre {
   -webkit-animation: image_blur_searchbar 3s; 
 }
 
-.threadOnly, .subreddit_c, .subreddit_t, .index, .comment, .no-results {
+.threadOnly, .subreddit_c, .subreddit_t, .index, .comment, .no-results, .fetching-text {
   display: inline;
   font-family: Verdana, Arial, Helvetica, sans-serif;
   color: #222222;
@@ -160,7 +160,7 @@ pre {
 }
 
 @media screen and (max-width: 760px) {
-  .comment, .index {
+  .comment, .index, .fetching-text {
     font-size: 15px;
   }
 
