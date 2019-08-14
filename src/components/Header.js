@@ -8,6 +8,8 @@ import {
 } from '../actions/index.js'
 
 class Header extends React.Component {
+  cancelSearch = React.createRef();
+
   handleButtons = event => {
 
     const { savesGridCont } = this.props
@@ -36,6 +38,31 @@ class Header extends React.Component {
         }
       }
 
+  handleIconClick = event => {
+    event.target.parentElement.firstChild.value='';
+    this.props.storeUserSearch('');
+    this.toggleCancelSearchIcon(event.target.parentElement.firstChild.value);
+  }
+  
+  handleOnChange = event => {
+    this.props.storeUserSearch(event.target.value);
+    this.toggleCancelSearchIcon(event.target.parentElement.firstChild.value);
+  }
+
+  toggleCancelSearchIcon = (userSearch) => {
+    const cancelSearch = this.cancelSearch.current.classList
+
+    if (userSearch === '' ) {
+      cancelSearch.add('hide')
+      cancelSearch.remove('show')
+    }
+
+    if (userSearch !== 'placehold3r' && userSearch !== '') {
+      cancelSearch.add('show')
+      cancelSearch.remove('hide')
+    }
+  }
+
   render() {
       return (
         <div className="grid-header-container">
@@ -52,9 +79,9 @@ class Header extends React.Component {
                 className="searchBox fas fa-search"
                 type="search"
                 placeholder="Search or filter by subreddit"
-                onChange={event => this.props.storeUserSearch(event.target.value) }
-                />
-                <span className="fa fa-search"></span>
+                onChange={this.handleOnChange} />
+              <i className="cancelSearch fas fa-times" onClick={this.handleIconClick} ref={this.cancelSearch}> </i>
+              <span className="fa fa-search"> </span>
             </form>
           </div>
         </div>

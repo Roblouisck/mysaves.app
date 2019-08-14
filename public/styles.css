@@ -75,9 +75,25 @@ pre {
   -webkit-appearance: none;
 }
 
+.cancelSearch {
+  visibility: hidden;
+  color: #c35d6e;
+  cursor: pointer;
+  position: relative;
+  left: -30px;
+}
+
+.hide {
+  visibility: hidden;
+}
+
+.show {
+  visibility: visible;
+}
+
 .fa { /* font awesome */
   position: relative;
-  right: 330px;
+  right: 346px;
   color: #919191;
   -webkit-animation: image_blur_searchbar 3s; 
 }
@@ -102,6 +118,8 @@ pre {
   border-top: 1px dotted #e1e1e1;
   grid-column-start: 2;
   line-height: 1.1;
+  word-break: break-word;
+  word-break: break-all;
   word-break: break-word;
   margin-left: -4%;
 }
@@ -148,6 +166,8 @@ pre {
   margin: 4px 0 29px 0;
   display: grid;
   grid-template-columns: 3% 98% 1%;
+  word-break: break-word;
+  word-break: break-all;
   word-break: break-word;
 }
 
