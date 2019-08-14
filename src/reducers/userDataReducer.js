@@ -14,8 +14,8 @@ const INITIAL_STATE = {
   currentPageOfSaves: [],
   totalUserSaves: [],
   userSearch: 'placehold3r',
-  saveValuesAlphabetical: [],
-  saveValuesChronologically: []
+  savesAlphabetically: [],
+  savesChronologically: []
 }
 
 export default (state = INITIAL_STATE, action) => {
@@ -31,9 +31,9 @@ export default (state = INITIAL_STATE, action) => {
     case STORE_USER_SEARCH:
       return {...state, userSearch: action.payload}
     case STORE_SAVES_ALPHABETICAL:
-      return {...state, saveValuesAlphabetical: action.payload}
+      return {...state, savesAlphabetically: action.payload}
     case STORE_SAVES_CHRONOLOGICAL:
-      return {...state, saveValuesChronologically: action.payload}
+      return {...state, savesChronologically: action.payload}
 
     default:
       return state

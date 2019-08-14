@@ -8,12 +8,12 @@ class FilterSaves extends React.Component {
     const thread = 't3'
     const comment = 't1'
     const { userSearch } = this.props
-    const { allSaves } = this.props
+    const { allSavesAlphabetical } = this.props
     const { search } = this.props
-    const { allSavesChronologically } = this.props
+    const { allSavesChronological } = this.props
     const searchDetected = (userSearch.trim().length > 0) 
-    const threadsArray = allSaves.filter(save => save.type === thread)
-    const commentsArray = allSaves.filter(save => save.type === comment)
+    const threadsArray = allSavesAlphabetical.filter(save => save.type === thread)
+    const commentsArray = allSavesAlphabetical.filter(save => save.type === comment)
 
     // 1. Check if the threads button was pushed
     if (this.props.onlyThreads === true) {
@@ -57,11 +57,11 @@ class FilterSaves extends React.Component {
 
     // 3. For AllSaves, check if a custom search is detected.
       if (searchDetected && userSearch !== "placehold3r") {
-      return search(allSavesChronologically)
+      return search(allSavesChronological)
     }
 
     // 4. Else show all thread & comment saves unfiltered
-    return allSavesChronologically.map((save, i) => {
+    return allSavesChronological.map((save, i) => {
       if (save.type === thread) {
         return (
           <div className="save-wrapper" key={save.key}>
@@ -103,8 +103,8 @@ const mapStateToProps = state => {
     onlyThreads: state.buttons.displayOnlyThreads,
     onlyComments: state.buttons.displayOnlyComments,
     userSearch: state.userData.userSearch,
-    allSaves: state.userData.saveValuesAlphabetical,
-    allSavesChronologically: state.userData.saveValuesChronologically
+    allSavesAlphabetical: state.userData.savesAlphabetically,
+    allSavesChronological: state.userData.savesChronologically
    }
 }
 
