@@ -51,7 +51,7 @@ pre {
   background-color: #209CEE
 }
 
-#all-saves, #only-threads, #only-comments {
+#btn-all-saves, #btn-only-threads, #btn-only-comments {
   font-family: 'IBM Plex Sans', sans-serif, Verdana, Arial, Helvetica, sans-serif;
   font-size: 15px;
 }
@@ -63,11 +63,12 @@ pre {
   border: 1px solid #919191;
   border-bottom: 2px solid #00000057;
   border-radius: 3px;
-  text-indent: 40px;
+  text-indent: 55px;
   font-family: 'IBM Plex Sans', sans-serif, Verdana, Arial, Helvetica, sans-serif;
   font-weight: 400;
   background: #f7f7f7;
   font-size: 16px;
+  padding-right: 30px;
   -webkit-animation: image_blur_searchbar 2s; 
 }
 
@@ -81,6 +82,7 @@ pre {
   cursor: pointer;
   position: relative;
   left: -30px;
+  background-color: #f7f7f7;
 }
 
 .hide {
@@ -93,9 +95,10 @@ pre {
 
 .fa { /* font awesome */
   position: relative;
-  right: 346px;
+  right: 333px;
   color: #919191;
   -webkit-animation: image_blur_searchbar 3s; 
+  background-color: #f7f7f7;
 }
 
 .threadOnly, .subreddit_c, .subreddit_t, .index, .comment, .no-results, .fetching-text {

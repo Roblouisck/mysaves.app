@@ -18,17 +18,17 @@ class Header extends React.Component {
       const buttonID = event.target.id;
       switch (buttonID) {
 
-          case 'all-saves':
+          case 'btn-all-saves':
               this.props.displayThreadsAndComments(true);
               savesGridContainer.remove('growSavesGridContainer');
               break;
 
-          case 'only-threads':
+          case 'btn-only-threads':
               this.props.displayOnlyThreads(true);
               savesGridContainer.add('growSavesGridContainer');
               break;
 
-          case 'only-comments':
+          case 'btn-only-comments':
               this.props.displayOnlyComments(true);
               savesGridContainer.remove('growSavesGridContainer');
               break;
@@ -69,9 +69,9 @@ class Header extends React.Component {
           <div className="grid-header">
 
             <div className="btn-group">
-              <button onClick={this.handleButtons} id="all-saves">All Saves</button>
-              <button onClick={this.handleButtons} id="only-threads">Threads</button>
-              <button onClick={this.handleButtons} id="only-comments">Comments</button>
+              <button onClick={this.handleButtons} id="btn-all-saves">All Saves</button>
+              <button onClick={this.handleButtons} id="btn-only-threads">Threads</button>
+              <button onClick={this.handleButtons} id="btn-only-comments">Comments</button>
             </div>
 
             <form>
