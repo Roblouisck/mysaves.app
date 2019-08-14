@@ -1,5 +1,5 @@
 import React from 'react';
-import { storeSearchQuery } from '../actions/index'
+import { storeUserSearch } from '../actions/index'
 import { connect } from 'react-redux'
 import { 
   displayThreadsAndComments,
@@ -7,7 +7,7 @@ import {
   displayOnlyComments
 } from '../actions/index.js'
 
-class RenderHeader extends React.Component {
+class Header extends React.Component {
   handleButtons = event => {
 
     const { savesGridCont } = this.props
@@ -52,7 +52,7 @@ class RenderHeader extends React.Component {
                 className="searchBox fas fa-search"
                 type="search"
                 placeholder="Search or filter by subreddit"
-                onChange={ (e) => this.props.storeSearchQuery(e.target.value) }
+                onChange={event => this.props.storeUserSearch(event.target.value) }
                 />
                 <span className="fa fa-search"></span>
             </form>
@@ -64,7 +64,7 @@ class RenderHeader extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    username: state.userData.username,
+    state
   }
 }
 
@@ -72,5 +72,5 @@ export default connect (mapStateToProps, {
   displayThreadsAndComments,
   displayOnlyThreads, 
   displayOnlyComments,
-  storeSearchQuery
-})(RenderHeader);
+  storeUserSearch
+})(Header);
