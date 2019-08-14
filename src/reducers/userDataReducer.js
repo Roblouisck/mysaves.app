@@ -1,20 +1,20 @@
 import {
   STORE_USER_TOKEN,
   STORE_USER_IDENTITY,
-  STORE_USER_SAVES_TEMPORARILY,
+  UPDATE_CURRENT_PAGE_SAVES,
   APPEND_USER_SAVES,
   STORE_USER_SEARCH,
-  STORE_SAVE_VALUES_WITH_HTML,
-  STORE_SAVE_VALUES_CHRONOLOGICALLY
+  STORE_SAVES_ALPHABETICAL,
+  STORE_SAVES_CHRONOLOGICAL
 } from '../actions/types'
 
 const INITIAL_STATE = {
   token: null,
   username: null,
-  temporaryUserSaves: [],
+  currentPageOfSaves: [],
   totalUserSaves: [],
   userSearch: 'placehold3r',
-  saveValuesWithHTML: [],
+  saveValuesAlphabetical: [],
   saveValuesChronologically: []
 }
 
@@ -24,15 +24,15 @@ export default (state = INITIAL_STATE, action) => {
       return {...state, token: action.payload}
     case STORE_USER_IDENTITY:
       return {...state, username: action.payload}
-    case STORE_USER_SAVES_TEMPORARILY:
-      return {...state, temporaryUserSaves: action.payload}    
+    case UPDATE_CURRENT_PAGE_SAVES:
+      return {...state, currentPageOfSaves: action.payload}    
     case APPEND_USER_SAVES:
       return {...state, totalUserSaves: [...state.totalUserSaves.concat(action.payload)] }
     case STORE_USER_SEARCH:
       return {...state, userSearch: action.payload}
-    case STORE_SAVE_VALUES_WITH_HTML:
-      return {...state, saveValuesWithHTML: action.payload}
-    case STORE_SAVE_VALUES_CHRONOLOGICALLY:
+    case STORE_SAVES_ALPHABETICAL:
+      return {...state, saveValuesAlphabetical: action.payload}
+    case STORE_SAVES_CHRONOLOGICAL:
       return {...state, saveValuesChronologically: action.payload}
 
     default:

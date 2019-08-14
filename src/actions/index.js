@@ -3,14 +3,14 @@ import {
   SET_PAGINATION,
   STORE_USER_TOKEN,
   STORE_USER_IDENTITY,
-  STORE_USER_SAVES_TEMPORARILY,
+  UPDATE_CURRENT_PAGE_SAVES,
   APPEND_USER_SAVES,
   DISPLAY_THREADS_AND_COMMENTS,
   DISPLAY_ONLY_THREADS,
   DISPLAY_ONLY_COMMENTS,
   STORE_USER_SEARCH,
-  STORE_SAVE_VALUES_WITH_HTML,
-  STORE_SAVE_VALUES_CHRONOLOGICALLY
+  STORE_SAVES_ALPHABETICAL,
+  STORE_SAVES_CHRONOLOGICAL
 
 } from './types'
 
@@ -24,8 +24,8 @@ export const fetchInitialUserData = (token) => {
     })
     const username = userIdentityObject.data.name
     const userSaves = userSavesObject.data.data.children
-    dispatch(storeUserSavesTemporarily(userSaves))
-    dispatch(appendUserSaves(userSaves))
+    dispatch(updateCurrentPageSaves(userSaves))
+    dispatch(storeUserSaves(userSaves))
     dispatch(setPagination(true))
     dispatch(storeUserIdentity(username))
   }
@@ -52,14 +52,14 @@ export const storeUserIdentity = username => {
   }
 }
 
-export const storeUserSavesTemporarily = userSaves => {
+export const updateCurrentPageSaves = userSaves => {
   return {
-    type: STORE_USER_SAVES_TEMPORARILY,
+    type: UPDATE_CURRENT_PAGE_SAVES,
     payload: userSaves
   }
 }
 
-export const appendUserSaves = userSaves => {
+export const storeUserSaves = userSaves => {
   return {
     type: APPEND_USER_SAVES,
     payload: userSaves
@@ -87,23 +87,23 @@ export const displayOnlyComments = boolean => {
   }
 }
 
-export const storeSearchQuery = searchQuery => {
+export const storeUserSearch = searchQuery => {
   return {
     type: STORE_USER_SEARCH,
     payload: searchQuery
   }
 }
 
-export const storeSaveValuesWithHTML = importantValues => {
+export const storesavesAlphabetical = saves => {
   return {
-    type: STORE_SAVE_VALUES_WITH_HTML,
-    payload: importantValues
+    type: STORE_SAVES_ALPHABETICAL,
+    payload: saves
   }
 }
 
-export const storeSaveValuesChronologically = importantValues => {
+export const storeSavesChronological = saves => {
   return {
-    type: STORE_SAVE_VALUES_CHRONOLOGICALLY,
-    payload: importantValues
+    type: STORE_SAVES_CHRONOLOGICAL,
+    payload: saves
   }
 }
