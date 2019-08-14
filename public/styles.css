@@ -82,7 +82,7 @@ pre {
   -webkit-animation: image_blur_searchbar 3s; 
 }
 
-.threadOnly, .subreddit_c, .subreddit_t, .index, .comment {
+.threadOnly, .subreddit_c, .subreddit_t, .index, .comment, .no-results {
   display: inline;
   font-family: Verdana, Arial, Helvetica, sans-serif;
   color: #222222;
@@ -121,7 +121,12 @@ pre {
   border: 1px solid #DBDBDB;
   border-top: 3px solid pink;
   -webkit-animation: image_blur_saves 4.5s; 
-  box-shadow: 0px 4px 16px 3px rgba(179, 207, 235, 0.3)
+  box-shadow: 
+    0px 4px 20px -10px 
+    rgba(62, 92, 118, 0.2), 
+
+    0px 50px 50px 11px 
+    rgba(128, 182, 236, 0.1)
 }
 
 .growSavesGridContainer {
@@ -130,8 +135,13 @@ pre {
   padding-right: 1%;
 }
 
+.growSavesGridContainer .no-results {
+  display: grid;
+  justify-items: center;
+}
+
 .saves-grid {
-  padding: 0 7% 0 4%;
+  padding: 0 4% 0 4%;
 }
 
 .comments-grid-container, .title-grid-container {
@@ -159,10 +169,15 @@ pre {
   }
 
   .saves-grid-container {
+    border: none;
     border-top: 3px solid pink;
     margin-left: 0;
     margin-right: 0;
     width: 100%;
+  }
+
+  .saves-grid {
+    padding: 0 7% 0 4%;
   }
 
   .growSavesGridContainer {
