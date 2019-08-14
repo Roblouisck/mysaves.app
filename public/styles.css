@@ -202,6 +202,11 @@ pre {
     border-top: none;
     margin-left: 0%;
   }
+
+  .no-results {
+    display: grid;
+    justify-items: center;
+  }
 }
 
 @-webkit-keyframes image_blur_buttons {
