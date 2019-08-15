@@ -164,7 +164,11 @@ pre {
 }
 
 .saves-grid {
-  padding: 0 4% 0 4%;
+  padding: 0 9% 0 4%;
+}
+
+.saves-grid-padding-threads {
+  padding: 0 1% 0 4%;
 }
 
 .comments-grid-container, .title-grid-container {
@@ -178,7 +182,7 @@ pre {
 
 .comments-grid, .title-grid {
   grid-column-start: 2;
-  padding: 5px;
+  padding: 9px;
   border-left: 1px solid #DBDBDB;
   border-top: 1px solid #e1e1e1;
   border-spacing: 5px;
@@ -206,7 +210,7 @@ pre {
   }
 
   .saves-grid {
-    padding: 0 7% 0 4%;
+    padding: 0 4% 0 4%;
   }
 
   .growSavesGridContainer {

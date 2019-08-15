@@ -6,6 +6,7 @@ import Search from '../containers/Search';
 
 class Render extends React.Component {
   savesGridContainer = React.createRef();
+  savesGrid = React.createRef();
 
   componentDidMount = () => {
     if (this.props.token === null) {
@@ -18,9 +19,9 @@ class Render extends React.Component {
     return (
       <div>
         <MapAndSort />
-        <Header savesGridCont={this.savesGridContainer}/>
+        <Header savesGridContainer={this.savesGridContainer} savesGrid={this.savesGrid}/>
         <div className="saves-grid-container" ref={this.savesGridContainer}>
-          <div className="saves-grid">
+          <div className="saves-grid" ref={this.savesGrid}>
             <Search />
           </div>
         </div>

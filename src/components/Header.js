@@ -12,8 +12,10 @@ class Header extends React.Component {
 
   handleButtons = event => {
 
-    const { savesGridCont } = this.props
-    const savesGridContainer = savesGridCont.current.classList
+    var { savesGridContainer } = this.props
+    var savesGridContainer = savesGridContainer.current.classList
+    var { savesGrid } = this.props
+    var savesGrid = savesGrid.current.classList
 
       const buttonID = event.target.id;
       switch (buttonID) {
@@ -21,16 +23,19 @@ class Header extends React.Component {
           case 'btn-all-saves':
               this.props.displayThreadsAndComments(true);
               savesGridContainer.remove('growSavesGridContainer');
+              savesGrid.remove('saves-grid-padding-threads')
               break;
 
           case 'btn-only-threads':
               this.props.displayOnlyThreads(true);
               savesGridContainer.add('growSavesGridContainer');
+              savesGrid.add('saves-grid-padding-threads')
               break;
 
           case 'btn-only-comments':
               this.props.displayOnlyComments(true);
               savesGridContainer.remove('growSavesGridContainer');
+              savesGrid.remove('saves-grid-padding-threads')
               break;
 
           default:
