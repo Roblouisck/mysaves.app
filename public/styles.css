@@ -83,6 +83,8 @@ pre {
   position: relative;
   left: -30px;
   background-color: #f7f7f7;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+  -webkit-tap-highlight-color: transparent;
 }
 
 .hide {
