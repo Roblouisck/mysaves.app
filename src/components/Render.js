@@ -10,7 +10,7 @@ class Render extends React.Component {
 
   componentDidMount = () => {
     if (this.props.token === null) {
-      window.location.replace(`https://www.reddit.com/api/v1/authorize?client_id=${process.env.REACT_APP_CLIENT_ID}&response_type=token&state=123abc&redirect_uri=${process.env.REACT_APP_URI}&duration=temporary&scope=history identity`);
+      window.location.replace(`https://www.reddit.com/api/v1/authorize?client_id=${process.env.REACT_APP_CLIENT_ID}&response_type=token&state=${Math.random().toString(36).substring(2)}&redirect_uri=${process.env.REACT_APP_URI}&duration=temporary&scope=history identity`);
     }
     return null
   }
