@@ -71,15 +71,13 @@ class FilterSaves extends React.Component {
           </div>
         )
       }
-      if (save.type === comment) {
-        return (
-          <div className="save-wrapper" key={save.key}>
-            <div className="index"> {i+1}. </div>
-            {save.displaySubreddit_c}
-            {save.displayComment}
-          </div>
-        )
-      }
+      return (
+        <div className="save-wrapper" key={save.key}>
+          <div className="index"> {i+1}. </div>
+          {save.displaySubreddit_c}
+          {save.displayComment}
+        </div>
+      )
     })
   }
 
