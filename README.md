@@ -101,7 +101,7 @@ My initial goals were pretty modest. I wanted to learn redux by building somethi
 ## 😇 [Contributing](#this-link-is-just-for-styling)
 ### Why you should contribute?
 * I have presented several easy contributions anyone can make below, explaining what each would entail
-* We all use reddit, we all have saves, so improve it so you, me, and everyone can enjoy it
+* We all use reddit, we all have saves, so improve it so you, I, and everyone else can enjoy it
 * The source code is easy to read and understand for those with knowledge of react/redux
 * I'm a new react/redux dev, it's possible there are many small refactors/improvements that can be made to the code
 * The code base is small
