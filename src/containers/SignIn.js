@@ -1,30 +1,31 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { 
-  fetchInitialUserData,
-  storeUserToken
-} from '../actions/index.js'
+import { fetchInitialUserData, storeUserToken } from '../actions/index.js';
 
 class SignIn extends React.Component {
-  componentDidMount (props) {
+  componentDidMount(props) {
     const params = new URLSearchParams(this.props.location.hash);
-    const token = params.get('#access_token')
-    this.props.storeUserToken(token)
-    this.props.fetchInitialUserData(token)
-    this.props.history.push('/')
+    const token = params.get('#access_token');
+    this.props.storeUserToken(token);
+    this.props.fetchInitialUserData(token);
+    this.props.history.push('/');
   }
 
-  render () {
-    return null
+  render() {
+    return null;
   }
 }
 
 const mapStateToProps = state => {
-  return { 
+  return {
     state
-   }
-}
+  };
+};
 
-export default connect(mapStateToProps, { 
-  fetchInitialUserData,
-  storeUserToken })(SignIn);
+export default connect(
+  mapStateToProps,
+  {
+    fetchInitialUserData,
+    storeUserToken
+  }
+)(SignIn);

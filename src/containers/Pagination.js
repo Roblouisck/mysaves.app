@@ -1,53 +1,62 @@
 import React from 'react';
-import axios from 'axios'
+import axios from 'axios';
 import { connect } from 'react-redux';
-import { 
+import {
   fetchInitialUserData,
-  storeUserToken, 
-  updateCurrentPageSaves, 
+  storeUserToken,
+  updateCurrentPageSaves,
   storeUserSaves,
   setPagination
-} from '../actions/index.js'
+} from '../actions/index.js';
 
 class Pagination extends React.Component {
-  componentDidUpdate () {
+  componentDidUpdate() {
     if (this.props.runAutoPagination === true && this.props.username !== null) {
-      this.runAutoPagination()
-      this.props.setPagination(false)
+      this.runAutoPagination();
+      this.props.setPagination(false);
     }
   }
 
   // fetchInitialUserData in SignIn.js sets initial condition to true
-  async runAutoPagination () {
+  async runAutoPagination() {
     while (this.props.currentPageSaves.length > 0) {
-      const currentPage = this.props.currentPageSaves[this.props.currentPageSaves.length-1].data.name
-      var nextPage = await axios.get (`https://oauth.reddit.com/user/${this.props.username}/saved/.json?limit=100&after=${currentPage}`, {
-      headers: { 'Authorization': `bearer ${this.props.token}` }
-    })
-      var nextPage = nextPage.data.data.children
-      const withNextPage = nextPage
-      this.props.updateCurrentPageSaves(withNextPage)
-      this.props.storeUserSaves(withNextPage)
+      const currentPage = this.props.currentPageSaves[
+        this.props.currentPageSaves.length - 1
+      ].data.name;
+      var nextPage = await axios.get(
+        `https://oauth.reddit.com/user/${this.props.username}/saved/.json?limit=100&after=${currentPage}`,
+        {
+          headers: { Authorization: `bearer ${this.props.token}` }
+        }
+      );
+      var nextPage = nextPage.data.data.children;
+      const withNextPage = nextPage;
+      this.props.updateCurrentPageSaves(withNextPage);
+      this.props.storeUserSaves(withNextPage);
     }
   }
 
-  render () {
-    return null
+  render() {
+    return null;
   }
 }
 
 const mapStateToProps = state => {
-  return { 
+  return {
     username: state.userData.username,
     currentPageSaves: state.userData.currentPageOfSaves,
     runAutoPagination: state.pagination.runAutoPagination,
     token: state.userData.token
-   }
-}
+  };
+};
 
-export default connect(mapStateToProps, { 
-  fetchInitialUserData,
-  storeUserToken, 
-  updateCurrentPageSaves, 
-  storeUserSaves,
-  setPagination })(Pagination);
+export default connect(
+  mapStateToProps,
+  {
+    fetchInitialUserData,
+    storeUserToken,
+    updateCurrentPageSaves,
+    storeUserSaves,
+    setPagination
+  }
+)(Pagination);
