@@ -127,15 +127,6 @@ Edge: Not sure on this one. It'll take some debugging. I tried text-overflow, ov
 </details>
 
 <details>
-<summary>Fix minor console errors</summary>
-<h4>Problem:</h4> 
-There are a few minor (yellow) errors I didn't look into fixing since they were from my initial assessment not performance impairing in any way, and more for convention. In the case of the re-declares I found it better to break that rule in some cases. 
-
-<h4>Solution/steps:</h4> 
-If you believe these are worth fixing and I'm wrong in some way send a pull request with the fix and a small explanation of why it's a good idea to fix them. It shouldn't be too hard to do, and maybe I'll learn something :) 
-</details>
-
-<details>
 <summary>Implement jump to the top button</summary>
 <h4>Problem:</h4> People with a lot of saves will have to scroll pretty far up to the top. This can be an inconvenience for mobile users.  
 
