@@ -99,7 +99,7 @@ export const storeUserSearch = searchQuery => {
   };
 };
 
-export const storesavesAlphabetical = saves => {
+export const storeSavesAlphabetical = saves => {
   return {
     type: STORE_SAVES_ALPHABETICAL,
     payload: saves

@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import {
-  storesavesAlphabetical,
+  storeSavesAlphabetical,
   storeSavesChronological
 } from '../actions/index';
 
@@ -92,7 +92,7 @@ class MapAndSort extends React.Component {
 
   componentDidUpdate() {
     const { storeSavesChronological } = this.props;
-    const { storesavesAlphabetical } = this.props;
+    const { storeSavesAlphabetical } = this.props;
     const { mapSavesToHtml } = this;
     const { decodeHtml } = this;
 
@@ -120,7 +120,7 @@ class MapAndSort extends React.Component {
       }
       return 0;
     });
-    mapSavesToHtml(savesAlphabetical, storesavesAlphabetical);
+    mapSavesToHtml(savesAlphabetical, storeSavesAlphabetical);
   }
 
   render() {
@@ -136,5 +136,5 @@ const mapStateToProps = state => {
 
 export default connect(
   mapStateToProps,
-  { storesavesAlphabetical, storeSavesChronological }
+  { storeSavesAlphabetical, storeSavesChronological }
 )(MapAndSort);
