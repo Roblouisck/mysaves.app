@@ -12,10 +12,10 @@ class Header extends React.Component {
 
   handleButtons = event => {
 
-    var { savesGridContainer } = this.props
-    var savesGridContainerClasses = savesGridContainer.current.classList
-    var { savesGrid } = this.props
-    var savesGridClasses = savesGrid.current.classList
+    const { savesGridContainer } = this.props
+    const savesGridContainerClasses = savesGridContainer.current.classList
+    const { savesGrid } = this.props
+    const savesGridClasses = savesGrid.current.classList
 
       const buttonID = event.target.id;
       switch (buttonID) {

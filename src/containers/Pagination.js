@@ -21,9 +21,10 @@ class Pagination extends React.Component {
   async runAutoPagination () {
     while (this.props.currentPageSaves.length > 0) {
       const currentPage = this.props.currentPageSaves[this.props.currentPageSaves.length-1].data.name
-      var nextPage = await axios.get (`https://oauth.reddit.com/user/${this.props.username}/saved/.json?limit=100&after=${currentPage}`, {
+      const nextPage = await axios.get (`https://oauth.reddit.com/user/${this.props.username}/saved/.json?limit=100&after=${currentPage}`, {
       headers: { 'Authorization': `bearer ${this.props.token}` }
     })
+
       const withNextPage = nextPage.data.data.children
       this.props.updateCurrentPageSaves(withNextPage)
       this.props.storeUserSaves(withNextPage)
