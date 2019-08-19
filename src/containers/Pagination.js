@@ -29,8 +29,7 @@ class Pagination extends React.Component {
           headers: { Authorization: `bearer ${this.props.token}` }
         }
       );
-      var nextPage = nextPage.data.data.children;
-      const withNextPage = nextPage;
+      const withNextPage = nextPage.data.data.children;
       this.props.updateCurrentPageSaves(withNextPage);
       this.props.storeUserSaves(withNextPage);
     }
