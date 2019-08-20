@@ -160,6 +160,23 @@ For users who haven't logged into reddit prior to using my app they may become s
 Start by replicating the bug. Clear your browser data then try logging into the app before logging into reddit. Seems like it might be an oauth problem.
 </details>
 
+### Guidelines:
+Pull requests can be big changes or small ones, just follow the guidelines.
+
+#### Commit message:
+* All commit messages should be separated into title & body
+  *	You can do this on the command line via <code> git commit -m "title" git commit -m "body" </code>
+* For titles use the imperative mood (See point 5 https://chris.beams.io/posts/git-commit/)
+
+#### Issues Tab:
+* This is where you can submit feature ideas for discussion.
+* If you're thinking of adding a new feature (not listed in the readme) it must receive the green light from me first, in the issues tab.
+* And of course issues in general go there, such as problems deploying locally.
+
+#### Do not:
+* Send PRs for features not already listed in the readme (unless given the greenlight in issues tab)
+* Send PRs involving code formatters such as prettier
+
 ## 🧑 [About the Author](#this-link-is-just-for-styling)
 [Robert Louis](https://github.com/Roblouisck) is a recent university graduate with a passion for building web applications and improving user experience. After graduating cum laude from UCLA he taught himself programming, and dove head first into frontend web development.
 
