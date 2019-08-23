@@ -170,11 +170,11 @@ Pull requests can be big changes or small ones, just follow the guidelines.
 
 #### Issues Tab:
 * This is where you can submit feature ideas for discussion.
-* If you're thinking of adding a new feature (not listed in the readme) it must receive the green light from me first, in the issues tab.
+* If you're thinking of adding a new feature please post it for discussion in the issues tab before you begin working on it
 * And of course issues in general go there, such as problems deploying locally.
 
 #### Do not:
-* Send PRs for features not already listed in the readme (unless given the greenlight in issues tab)
+* Send PRs for features that haven't been previously discussed
 * Send PRs involving code formatters such as prettier
 
 ## 🧑 [About the Author](#this-link-is-just-for-styling)
