@@ -79,22 +79,25 @@ My initial goals were pretty modest. I wanted to learn redux by building somethi
 
 ## ⚙️  [Instructions to Deploy Locally](#this-link-is-just-for-styling)
 
-		1. Clone or download this repository to your desktop (green button at the top)
-		2. Download and install node.js LTS or Current from https://nodejs.org/en/
-		3. Confirm node is installed by typing node -v in the command line
-		4. Create a reddit account
-		5. Go to https://www.reddit.com/prefs/apps
-		6. Click create app
-		7. Name it anything
-		8. Click the installed app circle
-		9. Paste http://localhost:3000/authorize_callback in for the redirect uri
-		10. Click create app
-		11. In the top left corner copy the string of characters shown under installed app
-		12. In the project files navigate to src --> components --> Render.js
-		13. Change ${process.env.REACT_APP_CLIENT_ID} to the string you just copied
-		14. Change ${process.env.REACT_APP_URI} to http://localhost:3000/authorize_callback
-		15. In the console navigate to the project folder and type npm install
-		16. In the console navigate to the project folder and type npm start
+1. Clone or download this repository to your desktop (green button at the top)
+2. Download and install node.js LTS or Current from https://nodejs.org/en/
+3. Confirm node is installed by typing node -v in the command line
+4. Create a reddit account
+5. Go to https://www.reddit.com/prefs/apps
+6. Click create app
+7. Name it anything
+8. Click the installed app circle
+9. Paste http://localhost:3000/authorize_callback in for the redirect uri
+10. Click create app
+11. In the top left corner copy the string of characters shown under installed app
+12. Create a `.env.development` file at the root of the folder
+13. Paste the copied string and redirect url like so:
+```
+REACT_APP_CLIENT_ID=your_copied_string
+REACT_APP_URI=http://localhost:3000/authorize_callback
+```
+14. In the console navigate to the project folder and type npm install
+15. In the console navigate to the project folder and type npm start
 
 
 
