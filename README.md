@@ -168,7 +168,7 @@ Pull requests can be big changes or small ones, just follow the guidelines.
 
 #### Commit message:
 * All commit messages should be separated into title & body
-  *	You can do this on the command line via <code> git commit -m "title" git commit -m "body" </code>
+  *	You can do this on the command line via <code> git commit -m "title" -m "body" </code>
 * For titles use the imperative mood (See point 5 https://chris.beams.io/posts/git-commit/)
 
 #### Issues Tab:
