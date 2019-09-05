@@ -1,0 +1,43 @@
+.save-wrapper-threadsOnly {
+  padding-bottom: 3px;
+  border-top: 1px dotted #e1e1e1;
+  grid-column-start: 2;
+  line-height: 1.1;
+  word-break: break-word;
+  word-break: break-all;
+  word-break: break-word;
+  margin-left: -4%;
+}
+
+.save-wrapper {
+  border-top: none;
+  margin-left: 0%;
+}
+
+.no-results,
+.fetching-text {
+  display: inline;
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+  color: #222222;
+  font-size: 14px;
+}
+
+.index {
+  display: inline;
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+  color: #222222;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+@media screen and (max-width: 760px) {
+  .fetching-text {
+    font-size: 15px;
+  }
+
+  .no-results {
+    display: grid;
+    justify-items: center;
+    font-size: 15px;
+  }
+}

@@ -1,0 +1,136 @@
+.grid-header-container {
+  margin: 15px 0 3px 0;
+  display: grid;
+  grid-template-columns: 1% 98% 1%;
+  justify-items: center;
+  background-size: 100px 100px;
+}
+
+.grid-header {
+  grid-column-start: 2;
+}
+
+.btn-group button {
+  background-color: #f7f7f7;
+  border: 1px solid #919191;
+  border-bottom: 2px solid #00000057;
+  border-radius: 2px;
+  color: black;
+  padding: 10px 24px;
+  cursor: pointer;
+  float: left;
+  margin-left: 3px;
+  -webkit-animation: image_blur_buttons 2s;
+}
+
+.btn-group button:hover {
+  background-color: #209cee;
+  border-bottom: 2px solid #919191;
+  color: white;
+}
+
+.btn-group button:active {
+  background-color: #209cee;
+}
+
+.searchBox {
+  width: 345px;
+  height: 35px;
+  margin: 5px 0px 0px 3px;
+  border: 1px solid #919191;
+  border-bottom: 2px solid #00000057;
+  border-radius: 3px;
+  text-indent: 53px;
+  font-family: 'IBM Plex Sans', sans-serif, Verdana, Arial, Helvetica,
+    sans-serif;
+  font-weight: 400;
+  background: #f7f7f7;
+  font-size: 16px;
+  padding-right: 30px;
+  -webkit-animation: image_blur_searchbar 2s;
+}
+
+@media screen and (max-width: 760px) {
+  .searchBox {
+    border-bottom: 1px solid #919191;
+  }
+}
+
+.searchBox::-webkit-search-cancel-button {
+  -webkit-appearance: none;
+}
+
+.cancelSearch {
+  visibility: hidden;
+  color: #c35d6e;
+  cursor: pointer;
+  position: relative;
+  left: 321px;
+  bottom: 26px;
+  background-color: #f7f7f7;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-tap-highlight-color: transparent;
+}
+
+.fa {
+  /* font awesome */
+  position: relative;
+  right: -15px;
+  bottom: 25px;
+  color: #919191;
+  -webkit-animation: image_blur_searchbar 3s;
+  background-color: #f7f7f7;
+}
+
+#btn-all-saves,
+#btn-only-threads,
+#btn-only-comments {
+  font-family: 'IBM Plex Sans', sans-serif, Verdana, Arial, Helvetica,
+    sans-serif;
+  font-size: 15px;
+}
+
+.hide {
+  visibility: hidden;
+}
+
+.show {
+  visibility: visible;
+}
+
+.growSavesGridContainer {
+  width: 95%;
+  padding-left: 1%;
+  padding-right: 1%;
+}
+
+.growSavesGridContainer .no-results {
+  display: grid;
+  justify-items: center;
+}
+
+.saves-grid-padding-threads {
+  padding: 0 1% 0 4%;
+}
+
+@media screen and (max-width: 760px) {
+  .btn-group button {
+    border-bottom: 1px solid #919191;
+  }
+
+  .btn-group button:hover {
+    border-bottom: 1px solid #919191;
+  }
+
+  .growSavesGridContainer {
+    width: 100%;
+    padding-left: 0%;
+    padding-right: 0%;
+  }
+
+  .no-results {
+    display: grid;
+    justify-items: center;
+    font-size: 15px;
+  }
+}

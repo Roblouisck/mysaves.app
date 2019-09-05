@@ -1,0 +1,84 @@
+.subreddit_c,
+.subreddit_t {
+  display: inline;
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+  color: #222222;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.title-grid-container {
+  margin: 4px 0 29px 0;
+  display: grid;
+  grid-template-columns: 3% 98% 1%;
+  word-break: break-word;
+  word-break: break-all;
+  word-break: break-word;
+}
+
+.title-grid {
+  grid-column-start: 2;
+  padding: 9px;
+  border-left: 1px solid #dbdbdb;
+  border-top: 1px solid #e1e1e1;
+  border-spacing: 5px;
+}
+
+.threadOnly {
+  display: inline;
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+  color: #222222;
+  font-size: 14px;
+}
+
+.thread {
+  display: inline;
+  color: #222222;
+  font-family: 'IBM Plex Sans', sans-serif, Verdana, Arial, Helvetica,
+    sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+a.titleOnly {
+  display: block;
+  margin: 4px 0 29px 3%;
+  line-height: 1.1;
+  border-left: 1px solid #dbdbdb;
+  border-top: 1px solid #e1e1e1;
+  border-spacing: 5px;
+  padding: 5px;
+  font-family: 'IBM Plex Sans', sans-serif, Verdana, Arial, Helvetica,
+    sans-serif;
+  font-size: 16px;
+}
+
+.comment {
+  display: inline;
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+  color: #222222;
+  font-size: 14px;
+}
+
+.comments-grid-container {
+  margin: 4px 0 29px 0;
+  display: grid;
+  grid-template-columns: 3% 98% 1%;
+  word-break: break-word;
+  word-break: break-all;
+  word-break: break-word;
+}
+
+.comments-grid {
+  grid-column-start: 2;
+  padding: 9px;
+  border-left: 1px solid #dbdbdb;
+  border-top: 1px solid #e1e1e1;
+  border-spacing: 5px;
+}
+
+@media screen and (max-width: 760px) {
+  .comment {
+    font-size: 15px;
+  }
+}

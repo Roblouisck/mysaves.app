@@ -1,0 +1,21 @@
+.save-wrapper-threadsOnly {
+  padding-bottom: 3px;
+  border-top: 1px dotted #e1e1e1;
+  grid-column-start: 2;
+  line-height: 1.1;
+  word-break: break-word;
+  word-break: break-all;
+  word-break: break-word;
+  margin-left: -4%;
+}
+
+.save-wrapper {
+  border-top: none;
+  margin-left: 0%;
+}
+
+@media screen and (max-width: 760px) {
+  .index {
+    font-size: 15px;
+  }
+}
