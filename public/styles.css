@@ -74,6 +74,7 @@ form {
   font-size: 16px;
   padding-right: 30px;
   -webkit-animation: image_blur_searchbar 2s; 
+  -webkit-appearance: none;
 }
 
 .searchBox::-webkit-search-cancel-button {
